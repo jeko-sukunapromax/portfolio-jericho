@@ -1,0 +1,20 @@
+Mode: Built-in image_gen (no CLI fallback)
+Identity reference filename: Gemini_Generated_Image_zetmyuzetmyuzetm.png
+Identity reference path: C:\Users\EXOUSIA\.t3\userdata\attachments\e63a9a8e-f2d2-4936-8177-889c80af7960-69cf8aac-8c93-490a-882f-ec4e9587f15f.png
+Generated source filename: exec-04f88de4-720b-42c7-872c-90b06ae81c89.png
+Generated source path: C:\Users\EXOUSIA\.codex\generated_images\01a0fcda-c7b0-73f2-85b3-e0706a7b34b4\exec-04f88de4-720b-42c7-872c-90b06ae81c89.png
+Project original: public/images/jericho-portrait.png
+Website encoding: public/images/jericho-portrait.webp (1024x1024, WebP quality 94)
+
+Exact generation prompt:
+
+Use case: identity-preserve
+Asset type: personal developer portfolio profile portrait
+Input images: Image 1 is the identity reference for Jericho Ivan Villamor. Preserve his exact facial identity, face proportions, black short textured hairstyle, transparent clear-framed glasses, natural skin tone and moustache/chin facial hair.
+Primary request: Create an identity-preserving photorealistic professional editorial head-and-shoulders portrait of the same man, replacing the formal suit with a dark charcoal casual overshirt over a black crewneck T-shirt. Friendly, confident, relaxed natural expression with a very subtle smile, looking toward the camera.
+Scene/backdrop: seamless deep neutral charcoal studio background with subtle texture and gentle depth, no props.
+Style/medium: authentic editorial photography, natural skin texture and pores, realistic glasses and hair, tasteful retouching, no artificial beauty filter.
+Composition/framing: square image, centered head and shoulders with comfortable headroom, shoulders visible, camera at eye level. The portrait will appear in a dark minimalist developer portfolio.
+Lighting/mood: soft warm side light, subtle shadow shaping, balanced gentle fill, calm and approachable.
+Color palette: charcoal and black clothing and backdrop with restrained warm highlights.
+Constraints: Keep recognizably the same person from the attached image. No text, no watermark, no logos, no symbols, no extra people, no exaggerated facial changes, no plastic skin, no illustration.
