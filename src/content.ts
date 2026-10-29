@@ -19,7 +19,10 @@ export interface PortfolioContent {
 
 export interface PortfolioProject {
   id: string;
+  shortName: string;
   title: string;
+  category: string;
+  artwork: "map" | "audit";
   description: string;
   tags: string[];
   highlight: string;
@@ -49,7 +52,10 @@ export const profile: PortfolioContent = {
 export const projects: PortfolioProject[] = [
   {
     id: "gis",
-    title: "GIS — Geographic Information System",
+    shortName: "GIS",
+    title: "Geographic Information System",
+    category: "Geospatial platform",
+    artwork: "map",
     description:
       "A geographic information system combining interactive maps with barangay profiles, population data, land use, hazard levels, and facility information. Includes boundary management, spatial analysis, data imports and exports, and role-based administration.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "GeoJSON"],
@@ -58,7 +64,10 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "atms",
-    title: "ATMS — Audit Management Platform",
+    shortName: "ATMS",
+    title: "Audit Management Platform",
+    category: "Audit management",
+    artwork: "audit",
     description:
       "An audit management application for organizing audit projects, tracking findings, and following up on recommendations. Includes office management, role-based permissions, and an overview dashboard.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "Chart.js"],

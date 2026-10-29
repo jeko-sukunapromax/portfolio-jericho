@@ -16,10 +16,10 @@ import {
   Moon,
   Sparkles,
   Sun,
-  Trophy,
   X,
 } from "lucide-react";
 import { profile, projects, toolkit } from "./content";
+import { ProjectArtwork } from "./ProjectArtwork";
 
 type Section = "home" | "projects" | "contact";
 
@@ -503,38 +503,41 @@ function App() {
             </span>
           </div>
           <div className="project-grid">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <article
                 key={project.id}
-                className="project-card"
+                className={`project-card project-card--${project.artwork}`}
                 aria-labelledby={`${project.id}-title`}
               >
-                <div className="project-preview">
-                  <LockKeyhole size={46} strokeWidth={1.5} aria-hidden="true" />
-                  <span>No demo — private project</span>
-                </div>
+                <header className="project-card-header">
+                  <div className="project-topline">
+                    <span className="project-index">{String(index + 1).padStart(2, "0")}</span>
+                    <span>{project.category}</span>
+                  </div>
+                  <h3 id={`${project.id}-title`} className="project-title">
+                    <span className="project-acronym">{project.shortName}</span>
+                    <span className="project-name">{project.title}</span>
+                  </h3>
+                </header>
+                <ProjectArtwork kind={project.artwork} />
                 <div className="project-details">
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-highlight">
+                    <p>{project.highlight}</p>
+                  </div>
                   <ul
                     className="project-tags"
-                    aria-label={`${project.title} technologies`}
+                    aria-label={`${project.shortName} technologies`}
                   >
                     {project.tags.map((tag) => (
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
-                  <h3 id={`${project.id}-title`} className="project-title">
-                    {project.title}
-                  </h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-highlight">
-                    <Trophy size={17} strokeWidth={1.5} aria-hidden="true" />
-                    <p>{project.highlight}</p>
-                  </div>
                   <div className="project-footer">
                     <span className="private-repo-label">
-                      <Github size={15} aria-hidden="true" /> Private repo
-                      <LockKeyhole size={12} aria-hidden="true" />
+                      <LockKeyhole size={13} aria-hidden="true" /> Private repo
                     </span>
+                    <span className="project-demo-note">No public demo</span>
                   </div>
                 </div>
               </article>
