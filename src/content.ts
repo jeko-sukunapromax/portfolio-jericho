@@ -20,7 +20,7 @@ export interface PortfolioContent {
 export const profile: PortfolioContent = {
   name: "Jericho Ivan Villamor",
   firstName: "Jericho",
-  github: "https://github.com/",
+  github: "https://github.com/jeko-sukunapromax",
   email: null,
   location: null,
   bio: "A little corner of the internet for my work, ideas, and the things I’m building.",
