@@ -687,6 +687,14 @@ img {
   color: var(--muted);
   margin-top: 5px;
 }
+.tool-item-workflow {
+  grid-column: 1 / -1;
+  padding-top: 18px;
+  border-top: 1px solid var(--subtle-line);
+}
+.tool-item-workflow .tool-icon {
+  background: var(--accent-bg);
+}
 .projects-section {
   padding: 58px 0 49px;
 }

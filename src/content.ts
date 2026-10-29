@@ -28,13 +28,26 @@ export interface PortfolioProject {
   highlight: string;
 }
 
-export const toolkit = [
+export interface PortfolioTool {
+  name: string;
+  badge: string;
+  role: string;
+  workflow?: boolean;
+}
+
+export const toolkit: PortfolioTool[] = [
   { name: "PHP", badge: "PHP", role: "Application logic" },
   { name: "Laravel", badge: "L", role: "Backend framework" },
   { name: "Livewire", badge: "LW", role: "Reactive interfaces" },
   { name: "Tailwind CSS", badge: "TW", role: "Interface styling" },
   { name: "Vite", badge: "V", role: "Asset builds" },
   { name: "Chart.js", badge: "CH", role: "ATMS visualizations" },
+  {
+    name: "AI-assisted development",
+    badge: "AI",
+    role: "Coding and debugging support",
+    workflow: true,
+  },
 ];
 
 export const profile: PortfolioContent = {

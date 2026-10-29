@@ -465,7 +465,10 @@ function App() {
           </div>
           <div className="toolkit-items">
             {toolkit.map((tool) => (
-              <div className="tool-item" key={tool.name}>
+              <div
+                className={`tool-item${tool.workflow ? " tool-item-workflow" : ""}`}
+                key={tool.name}
+              >
                 <div className="tool-icon" aria-hidden="true">
                   {tool.badge}
                 </div>
