@@ -11,7 +11,6 @@ import {
   Code2,
   ExternalLink,
   Github,
-  Layers3,
   LockKeyhole,
   Menu,
   Moon,
@@ -20,7 +19,7 @@ import {
   Trophy,
   X,
 } from "lucide-react";
-import { profile, projects } from "./content";
+import { profile, projects, toolkit } from "./content";
 
 type Section = "home" | "projects" | "contact";
 
@@ -461,32 +460,20 @@ function App() {
             <h2 id="toolkit-title">
               Built with good tools<span className="accent">.</span>
             </h2>
-            <p>A peek at what powers this portfolio.</p>
+            <p>The tools behind GIS and ATMS.</p>
           </div>
           <div className="toolkit-items">
-            <div className="tool-item">
-              <div className="tool-icon react-icon">⚛</div>
-              <div>
-                <h3>React</h3>
-                <span>The interface</span>
+            {toolkit.map((tool) => (
+              <div className="tool-item" key={tool.name}>
+                <div className="tool-icon" aria-hidden="true">
+                  {tool.badge}
+                </div>
+                <div>
+                  <h3>{tool.name}</h3>
+                  <span>{tool.role}</span>
+                </div>
               </div>
-            </div>
-            <div className="tool-item">
-              <div className="tool-icon typescript-icon">TS</div>
-              <div>
-                <h3>TypeScript</h3>
-                <span>The foundations</span>
-              </div>
-            </div>
-            <div className="tool-item">
-              <div className="tool-icon vite-icon">
-                <Layers3 size={21} />
-              </div>
-              <div>
-                <h3>Vite</h3>
-                <span>The engine</span>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 

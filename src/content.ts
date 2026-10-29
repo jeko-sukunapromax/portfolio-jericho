@@ -25,6 +25,15 @@ export interface PortfolioProject {
   highlight: string;
 }
 
+export const toolkit = [
+  { name: "PHP", badge: "PHP", role: "Application logic" },
+  { name: "Laravel", badge: "L", role: "Backend framework" },
+  { name: "Livewire", badge: "LW", role: "Reactive interfaces" },
+  { name: "Tailwind CSS", badge: "TW", role: "Interface styling" },
+  { name: "Vite", badge: "V", role: "Asset builds" },
+  { name: "Chart.js", badge: "CH", role: "ATMS visualizations" },
+];
+
 export const profile: PortfolioContent = {
   name: "Jericho Ivan Villamor",
   firstName: "Jericho",

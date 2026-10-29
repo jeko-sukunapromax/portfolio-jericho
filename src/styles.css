@@ -630,10 +630,10 @@ img {
   gap: 24px;
 }
 .toolkit-section {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 25px;
+  gap: 32px;
   border-top: 1px solid var(--subtle-line);
   border-bottom: 1px solid var(--line);
   padding: 30px 0;
@@ -650,16 +650,19 @@ img {
   margin-top: 8px;
 }
 .toolkit-items {
-  display: flex;
-  gap: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 20px;
 }
 .tool-item {
   display: flex;
   align-items: center;
   gap: 11px;
+  min-width: 0;
 }
 .tool-icon {
   display: flex;
+  flex: none;
   align-items: center;
   justify-content: center;
   width: 38px;
@@ -667,28 +670,20 @@ img {
   border-radius: 8px;
   background: var(--surface);
   border: 1px solid var(--line);
-}
-.react-icon {
-  font-size: 30px;
-  line-height: 1;
-  color: #75bdca;
-}
-.typescript-icon {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+  color: var(--accent);
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
   font-weight: 700;
-  color: #8aaecf;
-}
-.vite-icon {
-  color: #b0a0d2;
 }
 .tool-item h3 {
   font-size: 11px;
   font-weight: 550;
+  overflow-wrap: anywhere;
 }
 .tool-item > div > span {
   display: block;
-  font-size: 9px;
+  font-size: 10px;
+  line-height: 1.5;
   color: var(--muted);
   margin-top: 5px;
 }
@@ -1078,8 +1073,9 @@ img {
   .about-grid {
     gap: 40px;
   }
-  .toolkit-items {
-    gap: 23px;
+  .toolkit-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
   .contact-content h2 {
     font-size: 25px;
@@ -1171,8 +1167,6 @@ img {
   }
   .toolkit-section {
     gap: 18px;
-    align-items: flex-start;
-    flex-direction: column;
     padding: 26px 0;
   }
   .toolkit-intro {
@@ -1189,7 +1183,7 @@ img {
     margin-top: 0;
   }
   .toolkit-items {
-    gap: 40px;
+    gap: 22px 20px;
   }
   .contact-content h2 {
     font-size: 23px;
@@ -1380,9 +1374,8 @@ img {
     font-size: 16px;
   }
   .toolkit-items {
-    gap: 0;
-    justify-content: space-between;
-    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
   }
   .tool-item {
     gap: 8px;
@@ -1391,17 +1384,11 @@ img {
     width: 32px;
     height: 32px;
   }
-  .react-icon {
-    font-size: 26px;
-  }
-  .typescript-icon {
-    font-size: 12px;
-  }
   .tool-item h3 {
-    font-size: 10px;
+    font-size: 11px;
   }
   .tool-item > div > span {
-    font-size: 7px;
+    font-size: 10px;
     margin-top: 4px;
   }
   .section-subtitle {
@@ -1526,13 +1513,10 @@ img {
     margin-left: 8px;
   }
   .toolkit-items {
-    gap: 8px;
+    column-gap: 10px;
   }
   .tool-item {
     gap: 5px;
-  }
-  .tool-item > div > span {
-    font-size: 6px;
   }
   .contact-content h2 {
     font-size: 24px;
