@@ -12,18 +12,17 @@ import {
   ExternalLink,
   Github,
   Layers3,
+  LockKeyhole,
   Menu,
   Moon,
   Sparkles,
   Sun,
+  Trophy,
   X,
 } from "lucide-react";
-import { profile } from "./content";
+import { profile, projects } from "./content";
 
 type Section = "home" | "projects" | "contact";
-type ProjectFilter = "All" | "Web" | "Coming soon";
-
-const filters: ProjectFilter[] = ["All", "Web", "Coming soon"];
 
 function App() {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
@@ -40,8 +39,6 @@ function App() {
   const [experienceTab, setExperienceTab] = useState<"work" | "education">(
     "work",
   );
-  const [filter, setFilter] = useState<ProjectFilter>("All");
-  const [projectOpen, setProjectOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -50,7 +47,6 @@ function App() {
   const navigationRef = useRef<HTMLElement>(null);
   const mobileMenuTrigger = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const dialogOpen = projectOpen || contactOpen;
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -96,7 +92,7 @@ function App() {
 
   useEffect(() => {
     const dialog = dialogRef.current;
-    if (!dialog || !dialogOpen) return;
+    if (!dialog || !contactOpen) return;
     dialog.showModal();
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -104,33 +100,31 @@ function App() {
       dialog.close();
       document.body.style.overflow = previousOverflow;
     };
-  }, [dialogOpen]);
+  }, [contactOpen]);
 
   useEffect(() => {
     if (!mobileNavOpen) return;
     navigationRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
     function handleEscape(event: globalThis.KeyboardEvent) {
-      if (event.key !== "Escape" || dialogOpen) return;
+      if (event.key !== "Escape" || contactOpen) return;
       event.preventDefault();
       setMobileNavOpen(false);
       mobileMenuTrigger.current?.focus();
     }
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
-  }, [mobileNavOpen, dialogOpen]);
+  }, [mobileNavOpen, contactOpen]);
 
-  function openDialog(kind: "project" | "contact", trigger: HTMLElement) {
+  function openContactDialog(trigger: HTMLElement) {
     dialogTrigger.current = trigger;
     setCopied(false);
     setCopyError(false);
-    setProjectOpen(kind === "project");
-    setContactOpen(kind === "contact");
+    setContactOpen(true);
   }
 
   function closeDialog() {
     const trigger = dialogTrigger.current;
     dialogRef.current?.close();
-    setProjectOpen(false);
     setContactOpen(false);
     setCopied(false);
     setCopyError(false);
@@ -505,196 +499,59 @@ function App() {
             <div>
               <div className="section-kicker">IDEAS, TURNED INTO SOMETHING</div>
               <h2 id="projects-title" tabIndex={-1}>
-                A few things I’m building<span className="accent">.</span>
+                Selected projects<span className="accent">.</span>
                 <span className="section-subtitle">
-                  Small beginnings. Plenty of possibilities.
+                  A closer look at the things I build.
                 </span>
               </h2>
             </div>
             <span className="section-number">02 — PROJECTS</span>
           </div>
           <div className="project-toolbar">
-            <div
-              className="project-filters"
-              role="group"
-              aria-label="Filter projects"
-            >
-              {filters.map((item) => (
-                <button
-                  key={item}
-                  className={
-                    filter === item
-                      ? "filter-button filter-active"
-                      : "filter-button"
-                  }
-                  aria-pressed={filter === item}
-                  onClick={() => setFilter(item)}
-                >
-                  {item}
-                  {item === "All" && <span>03</span>}
-                </button>
-              ))}
-            </div>
             <span className="projects-count">
-              {filter === "All"
-                ? "1 project · 2 on the horizon"
-                : filter === "Web"
-                  ? "1 project"
-                  : "2 on the horizon"}
+              {String(projects.length).padStart(2, "0")} PROJECTS
+            </span>
+            <span className="project-privacy-note">
+              <LockKeyhole size={13} aria-hidden="true" /> Private repositories
             </span>
           </div>
           <div className="project-grid">
-            {filter !== "Coming soon" && (
-              <article className="project-card featured-project">
-                <button
-                  className="project-preview portfolio-preview"
-                  aria-label="View portfolio website project"
-                  onClick={(event) =>
-                    openDialog("project", event.currentTarget)
-                  }
-                >
-                  <div className="preview-grid" />
-                  <div className="mock-browser">
-                    <div className="mock-toolbar">
-                      <span />
-                      <span />
-                      <span />
-                      <span className="mock-url">jericho.portfolio</span>
-                      <ArrowUpRight size={10} />
-                    </div>
-                    <div className="mock-content">
-                      <div className="mock-nav">
-                        jericho<span>.</span>
-                        <div>home &nbsp; projects &nbsp; contact</div>
-                      </div>
-                      <div className="mock-hero">
-                        <div>
-                          <span className="mock-kicker">HELLO, WORLD.</span>
-                          <strong>
-                            A little curiosity.
-                            <br />A lot of possibility<span>.</span>
-                          </strong>
-                          <div className="mock-lines">
-                            <span />
-                            <span />
-                          </div>
-                          <div className="mock-button">Explore my work ↗</div>
-                        </div>
-                        <div className="mock-portrait">
-                          {portraitReady && (
-                            <img src={profile.portrait} alt="" loading="lazy" />
-                          )}
-                          <span>JIV</span>
-                        </div>
-                      </div>
-                      <div className="mock-footer">
-                        <span>Made with intention.</span>
-                        <span>01 / INTRODUCTION</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="project-preview-badge">
-                    <span /> YOU’RE HERE
-                  </div>
-                  <span className="preview-open">
-                    <ArrowUpRight size={19} />
-                  </span>
-                </button>
+            {projects.map((project) => (
+              <article
+                key={project.id}
+                className="project-card"
+                aria-labelledby={`${project.id}-title`}
+              >
+                <div className="project-preview">
+                  <LockKeyhole size={46} strokeWidth={1.5} aria-hidden="true" />
+                  <span>No demo — private project</span>
+                </div>
                 <div className="project-details">
-                  <div className="project-label">
-                    01 <span>WEB DEVELOPMENT</span>
-                    <span className="project-year">2026</span>
-                  </div>
-                  <button
-                    className="project-title"
-                    onClick={(event) =>
-                      openDialog("project", event.currentTarget)
-                    }
+                  <ul
+                    className="project-tags"
+                    aria-label={`${project.title} technologies`}
                   >
-                    A place on the internet.
-                    <ArrowUpRight size={19} />
-                  </button>
-                  <p>
-                    A personal space to share my work, document the journey, and
-                    connect with good people.
-                  </p>
-                  <div className="project-tags">
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Vite</span>
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                  <h3 id={`${project.id}-title`} className="project-title">
+                    {project.title}
+                  </h3>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-highlight">
+                    <Trophy size={17} strokeWidth={1.5} aria-hidden="true" />
+                    <p>{project.highlight}</p>
+                  </div>
+                  <div className="project-footer">
+                    <span className="private-repo-label">
+                      <Github size={15} aria-hidden="true" /> Private repo
+                      <LockKeyhole size={12} aria-hidden="true" />
+                    </span>
                   </div>
                 </div>
               </article>
-            )}
-            {filter !== "Web" && (
-              <>
-                <article className="project-card future-project">
-                  <div className="project-preview next-preview">
-                    <div className="orbit orbit-one" />
-                    <div className="orbit orbit-two" />
-                    <div className="orbit orbit-three" />
-                    <div className="future-icon">
-                      <Code2 size={30} strokeWidth={1.25} />
-                    </div>
-                    <span className="future-preview-label">
-                      THE NEXT IDEA STARTS HERE
-                    </span>
-                    <div className="project-preview-badge">
-                      <span /> COMING SOON
-                    </div>
-                  </div>
-                  <div className="project-details">
-                    <div className="project-label">
-                      02 <span>ON THE HORIZON</span>
-                    </div>
-                    <h3 className="project-title">
-                      Room for the next idea.
-                      <span className="small-plus">+</span>
-                    </h3>
-                    <p>
-                      A space saved for the next thing I create. Every project
-                      begins with a little curiosity.
-                    </p>
-                    <div className="project-tags">
-                      <span className="coming-tag">In the making</span>
-                    </div>
-                  </div>
-                </article>
-                <article className="project-card future-project">
-                  <div className="project-preview experiment-preview">
-                    <div className="experiment-grid" />
-                    <span className="experiment-spark">
-                      <Sparkles size={42} strokeWidth={1} />
-                    </span>
-                    <span className="experiment-coordinate coordinate-top">
-                      [ possibility / 003 ]
-                    </span>
-                    <span className="experiment-coordinate coordinate-bottom">
-                      think. make. repeat.
-                    </span>
-                    <div className="project-preview-badge">
-                      <span /> COMING SOON
-                    </div>
-                  </div>
-                  <div className="project-details">
-                    <div className="project-label">
-                      03 <span>EXPERIMENTS & IDEAS</span>
-                    </div>
-                    <h3 className="project-title">
-                      Let’s see what’s possible.
-                      <span className="small-plus">+</span>
-                    </h3>
-                    <p>
-                      A home for small experiments, side projects, and ideas
-                      that deserve a little exploring.
-                    </p>
-                    <div className="project-tags">
-                      <span className="coming-tag">Watch this space</span>
-                    </div>
-                  </div>
-                </article>
-              </>
-            )}
+            ))}
           </div>
           <a
             className="github-note"
@@ -737,7 +594,7 @@ function App() {
             ) : (
               <button
                 className="button contact-button"
-                onClick={(event) => openDialog("contact", event.currentTarget)}
+                onClick={(event) => openContactDialog(event.currentTarget)}
               >
                 Let’s connect <ArrowUpRight size={18} />
               </button>
@@ -787,10 +644,10 @@ function App() {
         </div>
       </footer>
 
-      {dialogOpen && (
+      {contactOpen && (
         <dialog
           ref={dialogRef}
-          className="project-dialog"
+          className="contact-dialog"
           aria-labelledby="dialog-title"
           onCancel={(event) => {
             event.preventDefault();
@@ -807,86 +664,46 @@ function App() {
           >
             <X size={20} />
           </button>
-          {projectOpen ? (
-            <>
-              <div className="dialog-icon">
-                <Code2 size={25} />
-              </div>
-              <span className="section-kicker">PERSONAL PROJECT / 2026</span>
-              <h2 id="dialog-title">
-                A place on the internet<span className="accent">.</span>
-              </h2>
-              <p>
-                This portfolio is my starting point: a responsive, accessible
-                space for my work, my story, and the ideas ahead.
-              </p>
-              <div className="dialog-feature-list">
-                <span>
-                  <Check size={15} /> Responsive on every screen
-                </span>
-                <span>
-                  <Check size={15} /> Light & dark themes
-                </span>
-                <span>
-                  <Check size={15} /> An AI portrait, inspired by my photo
-                </span>
-              </div>
-              <div className="project-tags">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Vite</span>
-              </div>
-              <button
-                className="button button-primary dialog-action"
-                onClick={closeDialog}
-              >
-                You’re already here <Check size={16} />
-              </button>
-            </>
-          ) : (
-            <>
-              <div className="dialog-icon">
-                <Sparkles size={25} />
-              </div>
-              <span className="section-kicker">LET’S KEEP IN TOUCH</span>
-              <h2 id="dialog-title">
-                Hello, from Jericho<span className="accent">.</span>
-              </h2>
-              <p>
-                My contact details are coming soon. In the meantime, you can
-                explore GitHub or save my name for later.
-              </p>
-              <a
-                className="button button-primary dialog-action"
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Explore GitHub <ExternalLink size={16} />
-              </a>
-              <button
-                className="button button-secondary copy-button"
-                onClick={copyName}
-              >
-                {copied ? (
-                  <>
-                    <Check size={16} /> Name copied
-                  </>
-                ) : (
-                  <>
-                    Copy my name <ChevronRight size={16} />
-                  </>
-                )}
-              </button>
-              <span className="copy-status" role="status" aria-live="polite">
-                {copied
-                  ? `${profile.name} copied to clipboard.`
-                  : copyError
-                    ? `Could not copy the name. You can select and copy ${profile.name} instead.`
-                    : ""}
-              </span>
-            </>
-          )}
+          <div className="dialog-icon">
+            <Sparkles size={25} />
+          </div>
+          <span className="section-kicker">LET’S KEEP IN TOUCH</span>
+          <h2 id="dialog-title">
+            Hello, from Jericho<span className="accent">.</span>
+          </h2>
+          <p>
+            My contact details are coming soon. In the meantime, you can explore
+            GitHub or save my name for later.
+          </p>
+          <a
+            className="button button-primary dialog-action"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Explore GitHub <ExternalLink size={16} />
+          </a>
+          <button
+            className="button button-secondary copy-button"
+            onClick={copyName}
+          >
+            {copied ? (
+              <>
+                <Check size={16} /> Name copied
+              </>
+            ) : (
+              <>
+                Copy my name <ChevronRight size={16} />
+              </>
+            )}
+          </button>
+          <span className="copy-status" role="status" aria-live="polite">
+            {copied
+              ? `${profile.name} copied to clipboard.`
+              : copyError
+                ? `Could not copy the name. You can select and copy ${profile.name} instead.`
+                : ""}
+          </span>
         </dialog>
       )}
     </>
