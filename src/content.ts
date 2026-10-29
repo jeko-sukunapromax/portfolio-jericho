@@ -57,10 +57,10 @@ export const projects: PortfolioProject[] = [
     category: "Geospatial platform",
     artwork: "map",
     description:
-      "A geographic information system combining interactive maps with barangay profiles, population data, land use, hazard levels, and facility information. Includes boundary management, spatial analysis, data imports and exports, and role-based administration.",
+      "A Laravel and Livewire mapping platform for barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "GeoJSON"],
     highlight:
-      "Connects barangay information, community facilities, and hazard data with interactive maps.",
+      "Unified barangay profiles, facility information, and hazard data in one interactive mapping workflow.",
   },
   {
     id: "atms",
@@ -69,9 +69,9 @@ export const projects: PortfolioProject[] = [
     category: "Audit management",
     artwork: "audit",
     description:
-      "An audit management application for organizing audit projects, tracking findings, and following up on recommendations. Includes office management, role-based permissions, and an overview dashboard.",
+      "A Laravel and Livewire audit platform for managing audit projects, findings, and recommendations. Includes office management, role-based permissions, and a Chart.js dashboard for reviewing audit activity.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "Chart.js"],
     highlight:
-      "Keeps audit projects, findings, and recommendations connected in one workflow.",
+      "Connected audit projects, findings, and recommendation follow-ups in one role-based workflow.",
   },
 ];

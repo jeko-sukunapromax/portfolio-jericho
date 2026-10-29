@@ -1046,7 +1046,7 @@ img {
   gap: 7px;
   list-style: none;
   padding: 0;
-  margin: 21px 0;
+  margin: 0 0 18px;
 }
 .project-tags > li {
   padding: 4px 8px;
@@ -1063,36 +1063,52 @@ img {
   color: var(--secondary);
 }
 .project-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   margin-top: 18px;
-  padding-left: 12px;
-  border-left: 2px solid var(--project-accent);
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-raised);
+}
+.project-highlight > svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--project-accent);
 }
 .project-highlight > p {
-  font-size: 11px;
-  font-weight: 450;
+  font-size: 12px;
+  font-weight: 650;
   line-height: 1.75;
 }
 .project-footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
   margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
+  padding-top: 24px;
 }
-.private-repo-label {
+.private-repo-button {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  color: var(--project-accent);
-  font-size: 10px;
-  font-weight: 500;
+  justify-content: center;
+  gap: 9px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 600;
   line-height: 1.5;
+  text-align: left;
+  transition: border-color 0.2s, color 0.2s;
 }
-.project-demo-note {
-  color: var(--muted);
-  font-size: 9px;
+.private-repo-button > svg {
+  flex: none;
+}
+.private-repo-button:hover {
+  border-color: var(--project-accent);
+  color: var(--project-accent);
 }
 .github-note {
   display: flex;

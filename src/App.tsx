@@ -16,6 +16,7 @@ import {
   Moon,
   Sparkles,
   Sun,
+  Trophy,
   X,
 } from "lucide-react";
 import { profile, projects, toolkit } from "./content";
@@ -521,10 +522,6 @@ function App() {
                 </header>
                 <ProjectArtwork kind={project.artwork} />
                 <div className="project-details">
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-highlight">
-                    <p>{project.highlight}</p>
-                  </div>
                   <ul
                     className="project-tags"
                     aria-label={`${project.shortName} technologies`}
@@ -533,11 +530,22 @@ function App() {
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-highlight">
+                    <Trophy size={17} strokeWidth={1.5} aria-hidden="true" />
+                    <p>{project.highlight}</p>
+                  </div>
                   <div className="project-footer">
-                    <span className="private-repo-label">
-                      <LockKeyhole size={13} aria-hidden="true" /> Private repo
-                    </span>
-                    <span className="project-demo-note">No public demo</span>
+                    <button
+                      type="button"
+                      className="private-repo-button"
+                      aria-haspopup="dialog"
+                      aria-label={`Contact Jericho about the ${project.shortName} private repository`}
+                      onClick={(event) => openContactDialog(event.currentTarget)}
+                    >
+                      <Github size={15} aria-hidden="true" />
+                      Private Repo – Contact Dev
+                    </button>
                   </div>
                 </div>
               </article>
