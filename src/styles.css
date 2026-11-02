@@ -630,70 +630,92 @@ img {
   gap: 24px;
 }
 .toolkit-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-  align-items: center;
-  gap: 32px;
   border-top: 1px solid var(--subtle-line);
   border-bottom: 1px solid var(--line);
-  padding: 30px 0;
+  padding: 42px 0;
+}
+.toolkit-intro {
+  margin-bottom: 25px;
 }
 .toolkit-intro h2 {
   font-family: "Manrope", sans-serif;
-  font-size: 16px;
-  letter-spacing: -0.35px;
-  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.7px;
+  font-weight: 650;
 }
 .toolkit-intro p {
-  font-size: 10px;
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.7;
   color: var(--muted);
-  margin-top: 8px;
 }
-.toolkit-items {
+.toolkit-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
-.tool-item {
-  display: flex;
-  align-items: center;
-  gap: 11px;
+.toolkit-card {
+  --tools-bg: #080d17;
+  --tools-border: #263244;
+  --tools-text: #f1f5f9;
+  --tools-tag-bg: #202c3d;
+  --tools-icon-bg: #20232c;
   min-width: 0;
+  min-height: 196px;
+  padding: 22px;
+  border: 1px solid var(--tools-border);
+  border-radius: 16px;
+  background: var(--tools-bg);
+  color: var(--tools-text);
 }
-.tool-icon {
+:root[data-theme="light"] .toolkit-card {
+  --tools-bg: #ffffff;
+  --tools-border: #d5dce6;
+  --tools-text: #253044;
+  --tools-tag-bg: #e9eef5;
+  --tools-icon-bg: #edf0f5;
+}
+.toolkit-card-header {
   display: flex;
-  flex: none;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.toolkit-card-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
   width: 38px;
   height: 38px;
   border-radius: 8px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  color: var(--accent);
-  font-family: "Manrope", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
+  background: var(--tools-icon-bg);
 }
-.tool-item h3 {
-  font-size: 11px;
-  font-weight: 550;
+.toolkit-card-header h3 {
+  min-width: 0;
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.45;
+  letter-spacing: -0.25px;
   overflow-wrap: anywhere;
 }
-.tool-item > div > span {
-  display: block;
-  font-size: 10px;
+.toolkit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.toolkit-tags > li {
+  max-width: 100%;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--tools-tag-bg);
+  color: var(--tools-text);
+  font-size: 12px;
+  font-weight: 650;
   line-height: 1.5;
-  color: var(--muted);
-  margin-top: 5px;
-}
-.tool-item-workflow {
-  grid-column: 1 / -1;
-  padding-top: 18px;
-  border-top: 1px solid var(--subtle-line);
-}
-.tool-item-workflow .tool-icon {
-  background: var(--accent-bg);
+  overflow-wrap: anywhere;
 }
 .projects-section {
   padding: 58px 0 49px;
@@ -1105,10 +1127,6 @@ img {
   .about-grid {
     gap: 40px;
   }
-  .toolkit-section {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-  }
   .contact-content h2 {
     font-size: 25px;
   }
@@ -1196,26 +1214,6 @@ img {
   }
   .timeline-item h3 {
     font-size: 12px;
-  }
-  .toolkit-section {
-    gap: 18px;
-    padding: 26px 0;
-  }
-  .toolkit-intro {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 15px;
-  }
-  .toolkit-intro h2 {
-    font-size: 15px;
-  }
-  .toolkit-intro p {
-    margin-top: 0;
-  }
-  .toolkit-items {
-    gap: 22px 20px;
   }
   .contact-content h2 {
     font-size: 23px;
@@ -1393,36 +1391,6 @@ img {
   .timeline-item p {
     font-size: 11px;
   }
-  .toolkit-section {
-    padding: 25px 0;
-    gap: 23px;
-  }
-  .toolkit-intro {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  .toolkit-intro h2 {
-    font-size: 16px;
-  }
-  .toolkit-items {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 14px;
-  }
-  .tool-item {
-    gap: 8px;
-  }
-  .tool-icon {
-    width: 32px;
-    height: 32px;
-  }
-  .tool-item h3 {
-    font-size: 11px;
-  }
-  .tool-item > div > span {
-    font-size: 10px;
-    margin-top: 4px;
-  }
   .section-subtitle {
     font-size: 11px;
     margin-top: 11px;
@@ -1544,12 +1512,6 @@ img {
     font-size: 27px;
     margin-left: 8px;
   }
-  .toolkit-items {
-    column-gap: 10px;
-  }
-  .tool-item {
-    gap: 5px;
-  }
   .contact-content h2 {
     font-size: 24px;
   }
@@ -1596,6 +1558,32 @@ img {
   }
   .project-details {
     padding: 0 20px 20px;
+  }
+}
+@media (max-width: 700px) {
+  .toolkit-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .toolkit-card {
+    min-height: 0;
+  }
+}
+@media (max-width: 590px) {
+  .toolkit-section {
+    padding: 32px 0;
+  }
+  .toolkit-intro h2 {
+    font-size: 23px;
+  }
+  .toolkit-card {
+    padding: 20px;
+  }
+  .toolkit-card-header {
+    gap: 11px;
+  }
+  .toolkit-card-header h3 {
+    font-size: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

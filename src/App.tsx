@@ -6,22 +6,37 @@ import {
   ArrowUp,
   ArrowUpRight,
   BookOpen,
+  Bot,
   Check,
   ChevronRight,
   Code2,
+  Database,
   ExternalLink,
   Github,
+  GitBranch,
   LockKeyhole,
+  MapPinned,
   Menu,
   Moon,
+  Server,
   Sparkles,
   Sun,
   Trophy,
+  Wrench,
   X,
 } from "lucide-react";
-import { profile, projects, toolkit } from "./content";
+import { profile, projects, toolkitGroups } from "./content";
 
 type Section = "home" | "projects" | "contact";
+
+const toolkitIcons = {
+  ai: Bot,
+  frontend: Wrench,
+  backend: Server,
+  mapping: MapPinned,
+  database: Database,
+  build: GitBranch,
+};
 
 function App() {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
@@ -455,28 +470,37 @@ function App() {
           </div>
         </section>
 
-        <section className="toolkit-section" aria-labelledby="toolkit-title">
+        <section id="tools" className="toolkit-section" aria-labelledby="toolkit-title">
           <div className="toolkit-intro">
             <h2 id="toolkit-title">
               Built with good tools<span className="accent">.</span>
             </h2>
-            <p>The tools behind my web projects.</p>
+            <p>The technologies and workflows behind my projects.</p>
           </div>
-          <div className="toolkit-items">
-            {toolkit.map((tool) => (
-              <div
-                className={`tool-item${tool.workflow ? " tool-item-workflow" : ""}`}
-                key={tool.name}
-              >
-                <div className="tool-icon" aria-hidden="true">
-                  {tool.badge}
-                </div>
-                <div>
-                  <h3>{tool.name}</h3>
-                  <span>{tool.role}</span>
-                </div>
-              </div>
-            ))}
+          <div className="toolkit-grid">
+            {toolkitGroups.map((group) => {
+              const Icon = toolkitIcons[group.icon];
+
+              return (
+                <article
+                  className="toolkit-card"
+                  key={group.id}
+                  aria-labelledby={`toolkit-${group.id}-title`}
+                >
+                  <header className="toolkit-card-header">
+                    <span className="toolkit-card-icon" aria-hidden="true">
+                      <Icon size={20} strokeWidth={1.7} />
+                    </span>
+                    <h3 id={`toolkit-${group.id}-title`}>{group.title}</h3>
+                  </header>
+                  <ul className="toolkit-tags" aria-label={`${group.title} tools`}>
+                    {group.tools.map((tool) => (
+                      <li key={tool}>{tool}</li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
           </div>
         </section>
 

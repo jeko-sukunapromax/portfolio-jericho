@@ -28,28 +28,49 @@ export interface PortfolioProject {
   highlight: string;
 }
 
-export interface PortfolioTool {
-  name: string;
-  badge: string;
-  role: string;
-  workflow?: boolean;
+export interface PortfolioToolGroup {
+  id: string;
+  title: string;
+  icon: "ai" | "frontend" | "backend" | "mapping" | "database" | "build";
+  tools: string[];
 }
 
-export const toolkit: PortfolioTool[] = [
-  { name: "PHP", badge: "PHP", role: "Application logic" },
-  { name: "Laravel", badge: "L", role: "Backend framework" },
-  { name: "Livewire", badge: "LW", role: "Reactive interfaces" },
-  { name: "Tailwind CSS", badge: "TW", role: "Interface styling" },
-  { name: "Vite", badge: "V", role: "Asset builds" },
-  { name: "Chart.js", badge: "CH", role: "ATMS visualizations" },
-  { name: "React", badge: "R", role: "Wedding invitation UI" },
-  { name: "JavaScript", badge: "JS", role: "Interactive experiences" },
-  { name: "CSS", badge: "CSS", role: "Custom styling" },
+export const toolkitGroups: PortfolioToolGroup[] = [
   {
-    name: "AI-assisted development",
-    badge: "AI",
-    role: "Coding and debugging support",
-    workflow: true,
+    id: "ai-workflow",
+    title: "AI & Development Workflow",
+    icon: "ai",
+    tools: ["AI-assisted Development", "Coding Support", "Debugging"],
+  },
+  {
+    id: "frontend",
+    title: "Frontend",
+    icon: "frontend",
+    tools: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS"],
+  },
+  {
+    id: "backend",
+    title: "Backend & Frameworks",
+    icon: "backend",
+    tools: ["PHP", "Laravel", "Livewire", "Blade", "REST APIs"],
+  },
+  {
+    id: "mapping",
+    title: "Mapping & Visualization",
+    icon: "mapping",
+    tools: ["Leaflet.js", "GeoJSON", "Chart.js", "Spatial Analysis"],
+  },
+  {
+    id: "databases",
+    title: "Databases & Auth",
+    icon: "database",
+    tools: ["PostgreSQL", "PostGIS", "Laravel Sanctum", "Laravel Jetstream", "RBAC"],
+  },
+  {
+    id: "build",
+    title: "Build & Version Control",
+    icon: "build",
+    tools: ["Vite", "npm", "Composer", "Git", "GitHub"],
   },
 ];
 
