@@ -461,7 +461,7 @@ function App() {
             <h2 id="toolkit-title">
               Built with good tools<span className="accent">.</span>
             </h2>
-            <p>The tools behind GIS and ATMS.</p>
+            <p>The tools behind my web projects.</p>
           </div>
           <div className="toolkit-items">
             {toolkit.map((tool) => (

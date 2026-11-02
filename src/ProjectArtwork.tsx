@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { Check, ClipboardList, Layers3, MapPinned } from "lucide-react";
+import { Check, ClipboardList, Heart, Layers3, MapPinned } from "lucide-react";
 import type { PortfolioProject } from "./content";
 
 function MapArtwork() {
@@ -87,14 +87,53 @@ function AuditArtwork() {
   );
 }
 
+function WeddingArtwork() {
+  return (
+    <div className="artwork-window">
+      <div className="artwork-topbar">
+        <span><Heart size={12} /> Wedding invitation</span>
+        <span className="artwork-window-dots"><i /><i /><i /></span>
+      </div>
+      <div className="wedding-scene">
+        <svg className="wedding-botanicals" viewBox="0 0 440 198" fill="none">
+          <g stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
+            <path d="M38 194c34-43 55-92 58-162M51 174l-24-20m39-6 34-13m-22-13-26-22m35-3 29-17M93 66 74 47" />
+            <path d="M27 154c-14 0-17-12-14-19 12 1 19 7 14 19Zm73-19c11-15 24-14 29-7-7 13-16 16-29 7ZM52 100c-16-3-21-15-16-24 14 3 22 11 16 24Zm64-20c9-16 19-18 26-11-5 13-14 18-26 11ZM74 47c-11-7-13-18-7-23 11 5 16 13 7 23Z" fill="currentColor" fillOpacity="0.12" />
+          </g>
+          <g transform="translate(440 0) scale(-1 1)" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
+            <path d="M38 194c34-43 55-92 58-162M51 174l-24-20m39-6 34-13m-22-13-26-22m35-3 29-17M93 66 74 47" />
+            <path d="M27 154c-14 0-17-12-14-19 12 1 19 7 14 19Zm73-19c11-15 24-14 29-7-7 13-16 16-29 7ZM52 100c-16-3-21-15-16-24 14 3 22 11 16 24Zm64-20c9-16 19-18 26-11-5 13-14 18-26 11ZM74 47c-11-7-13-18-7-23 11 5 16 13 7 23Z" fill="currentColor" fillOpacity="0.12" />
+          </g>
+        </svg>
+        <div className="wedding-stationery">
+          <Heart size={16} strokeWidth={1.2} />
+          <span className="wedding-kicker">THE WEDDING DAY</span>
+          <strong>You’re invited</strong>
+          <span className="wedding-rule" />
+          <span className="wedding-note">A celebration of love</span>
+          <div className="wedding-actions"><span>Our story</span><span>RSVP</span></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const artworkVariants = {
+  map: { component: MapArtwork, caption: "Maps & information" },
+  audit: { component: AuditArtwork, caption: "Projects & insights" },
+  wedding: { component: WeddingArtwork, caption: "Invitations & celebrations" },
+};
+
 export function ProjectArtwork({ kind }: { kind: PortfolioProject["artwork"] }) {
+  const { component: Artwork, caption } = artworkVariants[kind];
+
   return (
     <figure className={`project-visual project-visual--${kind}`}>
       <div className="project-artwork" aria-hidden="true">
-        {kind === "map" ? <MapArtwork /> : <AuditArtwork />}
+        <Artwork />
       </div>
       <figcaption>
-        <span><i /> {kind === "map" ? "Maps & information" : "Projects & insights"}</span>
+        <span><i /> {caption}</span>
         <span>Concept illustration</span>
       </figcaption>
     </figure>

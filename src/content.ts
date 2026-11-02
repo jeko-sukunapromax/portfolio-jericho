@@ -22,7 +22,7 @@ export interface PortfolioProject {
   shortName: string;
   title: string;
   category: string;
-  artwork: "map" | "audit";
+  artwork: "map" | "audit" | "wedding";
   description: string;
   tags: string[];
   highlight: string;
@@ -42,6 +42,9 @@ export const toolkit: PortfolioTool[] = [
   { name: "Tailwind CSS", badge: "TW", role: "Interface styling" },
   { name: "Vite", badge: "V", role: "Asset builds" },
   { name: "Chart.js", badge: "CH", role: "ATMS visualizations" },
+  { name: "React", badge: "R", role: "Wedding invitation UI" },
+  { name: "JavaScript", badge: "JS", role: "Interactive experiences" },
+  { name: "CSS", badge: "CSS", role: "Custom styling" },
   {
     name: "AI-assisted development",
     badge: "AI",
@@ -86,5 +89,17 @@ export const projects: PortfolioProject[] = [
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "Chart.js"],
     highlight:
       "Connected audit projects, findings, and recommendation follow-ups in one role-based workflow.",
+  },
+  {
+    id: "wedding-invitation",
+    shortName: "INVITE",
+    title: "Wedding Invitation Website",
+    category: "Digital invitation",
+    artwork: "wedding",
+    description:
+      "An interactive React and Vite wedding invitation with an animated envelope reveal, a live countdown, photo viewing, background music, and an RSVP dialog. Includes calendar downloads and reduced-motion support.",
+    tags: ["React", "JavaScript", "CSS", "Vite"],
+    highlight:
+      "Brought the invitation, countdown, RSVP, and calendar details together in one guest experience.",
   },
 ];

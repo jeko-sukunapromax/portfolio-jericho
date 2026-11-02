@@ -752,11 +752,19 @@ img {
   --art-accent: #d6aa8f;
   --art-bg: #29201c;
 }
+.project-card--wedding {
+  --project-accent: #dfb0bd;
+  --art-accent: #d6a7b5;
+  --art-bg: #2b2027;
+}
 :root[data-theme="light"] .project-card--map {
   --project-accent: #356e58;
 }
 :root[data-theme="light"] .project-card--audit {
   --project-accent: #8f542f;
+}
+:root[data-theme="light"] .project-card--wedding {
+  --project-accent: #8c5064;
 }
 .project-card:hover {
   border-color: var(--project-accent);
@@ -1019,6 +1027,75 @@ img {
   border-radius: 2px;
   background: currentColor;
   opacity: 0.25;
+}
+.wedding-scene {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 198px;
+  isolation: isolate;
+}
+.wedding-botanicals {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  z-index: -1;
+}
+.wedding-stationery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: min(190px, 80%);
+  min-height: 154px;
+  padding: 18px 12px 13px;
+  border: 1px solid #e7d8ca;
+  border-radius: 70px 70px 3px 3px;
+  background: #f4ece2;
+  color: #77505e;
+  box-shadow: 0 8px 24px #00000026;
+}
+.wedding-kicker {
+  font-size: 6px;
+  font-weight: 650;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.wedding-stationery strong {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+}
+.wedding-rule {
+  width: 30px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.4;
+}
+.wedding-note {
+  font-size: 7px;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+.wedding-actions {
+  display: flex;
+  gap: 7px;
+  margin-top: 2px;
+  font-size: 6px;
+}
+.wedding-actions > span {
+  padding: 4px 7px;
+  border: 1px solid #77505e40;
+  border-radius: 3px;
+}
+.wedding-actions > span:last-child {
+  background: #77505e;
+  color: #f4ece2;
 }
 .project-visual figcaption {
   display: flex;
@@ -1835,6 +1912,9 @@ img {
   .project-artwork {
     height: 211px;
     padding: 14px 14px 0;
+  }
+  .wedding-scene {
+    height: 180px;
   }
   .project-details {
     padding: 20px;
