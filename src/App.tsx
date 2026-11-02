@@ -20,7 +20,6 @@ import {
   X,
 } from "lucide-react";
 import { profile, projects, toolkit } from "./content";
-import { ProjectArtwork } from "./ProjectArtwork";
 
 type Section = "home" | "projects" | "contact";
 
@@ -510,7 +509,7 @@ function App() {
             {projects.map((project, index) => (
               <article
                 key={project.id}
-                className={`project-card project-card--${project.artwork}`}
+                className={`project-card project-card--${project.theme}`}
                 aria-labelledby={`${project.id}-title`}
               >
                 <header className="project-card-header">
@@ -523,7 +522,6 @@ function App() {
                     <span className="project-name">{project.title}</span>
                   </h3>
                 </header>
-                <ProjectArtwork kind={project.artwork} />
                 <div className="project-details">
                   <ul
                     className="project-tags"

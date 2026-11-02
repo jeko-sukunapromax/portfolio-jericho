@@ -22,7 +22,7 @@ export interface PortfolioProject {
   shortName: string;
   title: string;
   category: string;
-  artwork: "map" | "audit" | "wedding";
+  theme: "map" | "audit" | "wedding";
   description: string;
   tags: string[];
   highlight: string;
@@ -71,7 +71,7 @@ export const projects: PortfolioProject[] = [
     shortName: "GIS",
     title: "Geographic Information System",
     category: "Geospatial platform",
-    artwork: "map",
+    theme: "map",
     description:
       "A Laravel and Livewire mapping platform for barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "GeoJSON"],
@@ -83,7 +83,7 @@ export const projects: PortfolioProject[] = [
     shortName: "ATMS",
     title: "Audit Management Platform",
     category: "Audit management",
-    artwork: "audit",
+    theme: "audit",
     description:
       "A Laravel and Livewire audit platform for managing audit projects, findings, and recommendations. Includes office management, role-based permissions, and a Chart.js dashboard for reviewing audit activity.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "Chart.js"],
@@ -95,7 +95,7 @@ export const projects: PortfolioProject[] = [
     shortName: "INVITE",
     title: "Wedding Invitation Website",
     category: "Digital invitation",
-    artwork: "wedding",
+    theme: "wedding",
     description:
       "An interactive React and Vite wedding invitation with an animated envelope reveal, a live countdown, photo viewing, background music, and an RSVP dialog. Includes calendar downloads and reduced-motion support.",
     tags: ["React", "JavaScript", "CSS", "Vite"],
