@@ -22,7 +22,7 @@ export interface PortfolioProject {
   shortName: string;
   title: string;
   category: string;
-  theme: "map" | "audit" | "wedding";
+  theme: "map" | "audit" | "wedding" | "discord";
   description: string;
   tags: string[];
   highlight: string;
@@ -38,9 +38,9 @@ export interface PortfolioToolGroup {
 export const toolkitGroups: PortfolioToolGroup[] = [
   {
     id: "ai-workflow",
-    title: "AI & Development Workflow",
+    title: "AI & Automation",
     icon: "ai",
-    tools: ["AI-assisted Development", "Coding Support", "Debugging"],
+    tools: ["AI-assisted Development", "Coding Support", "Debugging", "Discord Bots", "Scheduled Reminders"],
   },
   {
     id: "frontend",
@@ -52,7 +52,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     id: "backend",
     title: "Backend & Frameworks",
     icon: "backend",
-    tools: ["PHP", "Laravel", "Livewire", "Blade", "REST APIs"],
+    tools: ["PHP", "Laravel", "Livewire", "Blade", "REST APIs", "Node.js", "discord.js"],
   },
   {
     id: "mapping",
@@ -64,13 +64,13 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     id: "databases",
     title: "Databases & Auth",
     icon: "database",
-    tools: ["PostgreSQL", "PostGIS", "Laravel Sanctum", "Laravel Jetstream", "RBAC"],
+    tools: ["PostgreSQL", "PostGIS", "SQLite", "Cloudflare D1", "Laravel Sanctum", "Laravel Jetstream", "RBAC"],
   },
   {
     id: "build",
-    title: "Build & Version Control",
+    title: "Build & Infrastructure",
     icon: "build",
-    tools: ["Vite", "npm", "Composer", "Git", "GitHub"],
+    tools: ["Vite", "npm", "Composer", "Git", "GitHub", "Cloudflare Workers", "Wrangler"],
   },
 ];
 
@@ -122,5 +122,17 @@ export const projects: PortfolioProject[] = [
     tags: ["React", "JavaScript", "CSS", "Vite"],
     highlight:
       "Brought the invitation, countdown, RSVP, and calendar details together in one guest experience.",
+  },
+  {
+    id: "discord-assistant",
+    shortName: "BOT",
+    title: "Personal Discord Assistant",
+    category: "Productivity & automation",
+    theme: "discord",
+    description:
+      "A TypeScript Discord bot for tasks, habit check-ins, scheduled reminders, and ATMS audit updates through slash commands. Includes service monitoring and a daily agenda, with Node.js/SQLite and Cloudflare Workers/D1 deployment options.",
+    tags: ["TypeScript", "Node.js", "discord.js", "SQLite", "Cloudflare Workers", "D1"],
+    highlight:
+      "Connected daily tasks, habit tracking, reminders, and audit deadlines in one Discord workflow.",
   },
 ];

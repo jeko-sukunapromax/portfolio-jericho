@@ -773,6 +773,9 @@ img {
 .project-card--wedding {
   --project-accent: #dfb0bd;
 }
+.project-card--discord {
+  --project-accent: #b9b8ef;
+}
 :root[data-theme="light"] .project-card--map {
   --project-accent: #356e58;
 }
@@ -781,6 +784,9 @@ img {
 }
 :root[data-theme="light"] .project-card--wedding {
   --project-accent: #8c5064;
+}
+:root[data-theme="light"] .project-card--discord {
+  --project-accent: #5751a3;
 }
 .project-card:hover {
   border-color: var(--project-accent);
