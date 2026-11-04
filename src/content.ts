@@ -9,7 +9,9 @@ export interface PortfolioContent {
   name: string;
   firstName: string;
   github: string;
+  instagram: string;
   email: string | null;
+  resume: string | null;
   location: string | null;
   bio: string;
   portrait: string;
@@ -85,7 +87,9 @@ export const profile: PortfolioContent = {
   name: "Jericho Ivan Villamor",
   firstName: "Jericho",
   github: "https://github.com/jeko-sukunapromax",
-  email: null,
+  instagram: "https://www.instagram.com/jericho.dev",
+  email: "villamorjerichoivan@gmail.com",
+  resume: null,
   location: null,
   bio: "A little corner of the internet for my work, ideas, and the things I’m building.",
   portrait: "/images/jericho-portrait.webp",

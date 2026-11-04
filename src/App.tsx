@@ -12,9 +12,11 @@ import {
   Cloud,
   Code2,
   Database,
-  ExternalLink,
+  FileText,
   Github,
+  Instagram,
   LockKeyhole,
+  Mail,
   Menu,
   Moon,
   Server,
@@ -35,6 +37,43 @@ const toolkitIcons = {
   database: Database,
   cloud: Cloud,
 };
+
+function SocialLinks() {
+  return (
+    <nav className="social-links" aria-label="Social and contact links">
+      <a
+        className="icon-button"
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        title="GitHub"
+      >
+        <Github size={17} aria-hidden="true" />
+      </a>
+      <a
+        className="icon-button"
+        href={profile.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+        <Instagram size={17} aria-hidden="true" />
+      </a>
+      {profile.email && (
+        <a
+          className="icon-button"
+          href={`mailto:${profile.email}`}
+          aria-label="Email Jericho Villamor"
+          title={profile.email}
+        >
+          <Mail size={17} aria-hidden="true" />
+        </a>
+      )}
+    </nav>
+  );
+}
 
 function App() {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
@@ -59,6 +98,8 @@ function App() {
   const navigationRef = useRef<HTMLElement>(null);
   const mobileMenuTrigger = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const contactValue = profile.email ?? profile.name;
+  const contactLabel = profile.email ? "email" : "name";
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -169,10 +210,10 @@ function App() {
     document.getElementById(`${nextTab}-tab`)?.focus();
   }
 
-  async function copyName() {
+  async function copyContact() {
     setCopyError(false);
     try {
-      await navigator.clipboard.writeText(profile.name);
+      await navigator.clipboard.writeText(contactValue);
       setCopied(true);
     } catch {
       setCopied(false);
@@ -263,6 +304,15 @@ function App() {
               <br />A little bit of code.
             </h2>
             <p className="hero-description">{profile.bio}</p>
+            <p className="hero-escalation">
+              For escalations, please contact{" "}
+              <a
+                href={profile.email ? `mailto:${profile.email}` : profile.instagram}
+              >
+                Jericho Villamor
+              </a>
+              .
+            </p>
             <div className="hero-actions">
               <a
                 className="button button-primary"
@@ -271,16 +321,32 @@ function App() {
               >
                 Explore my work <ArrowUpRight size={17} />
               </a>
-              <a
-                href={profile.github}
-                className="button button-secondary"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {" "}
-                <Github size={17} /> GitHub{" "}
-                <ArrowUpRight size={14} className="muted-icon" />
-              </a>
+              <div className="hero-contact-links">
+                {profile.resume ? (
+                  <a
+                    href={profile.resume}
+                    className="button button-secondary resume-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Resume <FileText size={16} aria-hidden="true" />
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="button button-secondary resume-button"
+                    title="Resume coming soon"
+                    disabled
+                  >
+                    <span>
+                      Resume
+                      <span className="resume-status">Coming soon</span>
+                    </span>
+                    <FileText size={16} aria-hidden="true" />
+                  </button>
+                )}
+                <SocialLinks />
+              </div>
             </div>
             <a className="scroll-hint" href="#about">
               <ArrowDown size={14} /> A little more about me
@@ -604,6 +670,11 @@ function App() {
                 Have something in mind<span className="accent">?</span>
               </h2>
               <p>A project, an idea, or just a hello. I’d love to hear it.</p>
+              {profile.email && (
+                <a className="contact-email" href={`mailto:${profile.email}`}>
+                  {profile.email}
+                </a>
+              )}
             </div>
             {profile.email ? (
               <a
@@ -645,15 +716,7 @@ function App() {
         </div>
         <div className="footer-right">
           <span>Made with curiosity & a little code.</span>
-          <a
-            className="icon-button"
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-          >
-            <Github size={17} />
-          </a>
+          <SocialLinks />
           <a
             className="icon-button back-top"
             href="#home"
@@ -693,36 +756,45 @@ function App() {
             Hello, from Jericho<span className="accent">.</span>
           </h2>
           <p>
-            My contact details are coming soon. In the meantime, you can explore
-            GitHub or save my name for later.
+            Have a project in mind or want to discuss a private repository?{" "}
+            {profile.email ? (
+              <>
+                Reach me at{" "}
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>.
+              </>
+            ) : (
+              "Find me on Instagram or GitHub to start a conversation."
+            )}
           </p>
+          <SocialLinks />
           <a
             className="button button-primary dialog-action"
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
+            href={profile.email ? `mailto:${profile.email}` : profile.instagram}
           >
-            Explore GitHub <ExternalLink size={16} />
+            {profile.email ? "Email me" : "Find me on Instagram"}{" "}
+            {profile.email ? <Mail size={16} /> : <Instagram size={16} />}
           </a>
           <button
             className="button button-secondary copy-button"
-            onClick={copyName}
+            onClick={copyContact}
           >
             {copied ? (
               <>
-                <Check size={16} /> Name copied
+                <Check size={16} />{" "}
+                {profile.email ? "Email copied" : "Name copied"}
               </>
             ) : (
               <>
-                Copy my name <ChevronRight size={16} />
+                {profile.email ? "Copy email" : "Copy my name"}{" "}
+                <ChevronRight size={16} />
               </>
             )}
           </button>
           <span className="copy-status" role="status" aria-live="polite">
             {copied
-              ? `${profile.name} copied to clipboard.`
+              ? `${contactValue} copied to clipboard.`
               : copyError
-                ? `Could not copy the name. You can select and copy ${profile.name} instead.`
+                ? `Could not copy the ${contactLabel}. You can select and copy ${contactValue} instead.`
                 : ""}
           </span>
         </dialog>
