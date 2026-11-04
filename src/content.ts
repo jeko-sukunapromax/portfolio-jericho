@@ -107,7 +107,7 @@ export const projects: PortfolioProject[] = [
       "A Laravel and Livewire mapping platform for barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "GeoJSON"],
     highlight:
-      "Unified barangay profiles, facility information, and hazard data in one interactive mapping workflow.",
+      "27,000+ data records for Bayambang, organized in one interactive mapping platform.",
   },
   {
     id: "atms",
