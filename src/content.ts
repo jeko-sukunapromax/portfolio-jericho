@@ -30,11 +30,20 @@ export interface PortfolioProject {
 export interface PortfolioToolGroup {
   id: string;
   title: string;
-  icon: "frontend" | "backend" | "database" | "build";
+  icon: "ai" | "frontend" | "backend" | "database" | "cloud";
   tools: string[];
 }
 
 export const toolkitGroups: PortfolioToolGroup[] = [
+  {
+    id: "ai-automation",
+    title: "AI, Automation & Browser",
+    icon: "ai",
+    tools: [
+      "Claude Code (Advanced)", "Codex", "Antigravity", "n8n",
+      "Prompt Engineering", "Playwright", "chromedp", "Selenium",
+    ],
+  },
   {
     id: "frontend",
     title: "Frontend",
@@ -60,12 +69,13 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     tools: ["PostgreSQL", "PostGIS", "SQLite", "Cloudflare D1", "GeoJSON", "Spatial Analysis"],
   },
   {
-    id: "build",
-    title: "Tools & Deployment",
-    icon: "build",
+    id: "cloud",
+    title: "Cloud, DevOps & Infra",
+    icon: "cloud",
     tools: [
-      "Vite", "npm", "Composer", "Git", "GitHub", "Cloudflare Workers",
-      "Wrangler", "AI-assisted Development",
+      "Railway", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines",
+      "Git/GitHub", "Windows Server", "Linux", "Cloudflare Workers", "Wrangler",
+      "Vite", "npm", "Composer",
     ],
   },
 ];

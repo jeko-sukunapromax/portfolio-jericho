@@ -6,13 +6,14 @@ import {
   ArrowUp,
   ArrowUpRight,
   BookOpen,
+  Bot,
   Check,
   ChevronRight,
+  Cloud,
   Code2,
   Database,
   ExternalLink,
   Github,
-  GitBranch,
   LockKeyhole,
   Menu,
   Moon,
@@ -28,10 +29,11 @@ import { profile, projects, toolkitGroups } from "./content";
 type Section = "home" | "projects" | "contact";
 
 const toolkitIcons = {
+  ai: Bot,
   frontend: Wrench,
   backend: Server,
   database: Database,
-  build: GitBranch,
+  cloud: Cloud,
 };
 
 function App() {
