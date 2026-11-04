@@ -22,7 +22,6 @@ export interface PortfolioProject {
   shortName: string;
   title: string;
   category: string;
-  theme: "map" | "audit" | "wedding" | "discord";
   description: string;
   tags: string[];
   highlight: string;
@@ -31,46 +30,43 @@ export interface PortfolioProject {
 export interface PortfolioToolGroup {
   id: string;
   title: string;
-  icon: "ai" | "frontend" | "backend" | "mapping" | "database" | "build";
+  icon: "frontend" | "backend" | "database" | "build";
   tools: string[];
 }
 
 export const toolkitGroups: PortfolioToolGroup[] = [
   {
-    id: "ai-workflow",
-    title: "AI & Automation",
-    icon: "ai",
-    tools: ["AI-assisted Development", "Coding Support", "Debugging", "Discord Bots", "Scheduled Reminders"],
-  },
-  {
     id: "frontend",
     title: "Frontend",
     icon: "frontend",
-    tools: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS"],
+    tools: [
+      "React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS",
+      "Blade", "Livewire", "Leaflet.js", "Chart.js",
+    ],
   },
   {
     id: "backend",
-    title: "Backend & Frameworks",
+    title: "Backend",
     icon: "backend",
-    tools: ["PHP", "Laravel", "Livewire", "Blade", "REST APIs", "Node.js", "discord.js"],
-  },
-  {
-    id: "mapping",
-    title: "Mapping & Visualization",
-    icon: "mapping",
-    tools: ["Leaflet.js", "GeoJSON", "Chart.js", "Spatial Analysis"],
+    tools: [
+      "PHP", "Laravel", "Node.js", "discord.js", "REST APIs",
+      "Laravel Sanctum", "Laravel Jetstream", "RBAC",
+    ],
   },
   {
     id: "databases",
-    title: "Databases & Auth",
+    title: "Databases & Data",
     icon: "database",
-    tools: ["PostgreSQL", "PostGIS", "SQLite", "Cloudflare D1", "Laravel Sanctum", "Laravel Jetstream", "RBAC"],
+    tools: ["PostgreSQL", "PostGIS", "SQLite", "Cloudflare D1", "GeoJSON", "Spatial Analysis"],
   },
   {
     id: "build",
-    title: "Build & Infrastructure",
+    title: "Tools & Deployment",
     icon: "build",
-    tools: ["Vite", "npm", "Composer", "Git", "GitHub", "Cloudflare Workers", "Wrangler"],
+    tools: [
+      "Vite", "npm", "Composer", "Git", "GitHub", "Cloudflare Workers",
+      "Wrangler", "AI-assisted Development",
+    ],
   },
 ];
 
@@ -92,7 +88,6 @@ export const projects: PortfolioProject[] = [
     shortName: "GIS",
     title: "Geographic Information System",
     category: "Geospatial platform",
-    theme: "map",
     description:
       "A Laravel and Livewire mapping platform for barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "GeoJSON"],
@@ -104,7 +99,6 @@ export const projects: PortfolioProject[] = [
     shortName: "ATMS",
     title: "Audit Management Platform",
     category: "Audit management",
-    theme: "audit",
     description:
       "A Laravel and Livewire audit platform for managing audit projects, findings, and recommendations. Includes office management, role-based permissions, and a Chart.js dashboard for reviewing audit activity.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "Chart.js"],
@@ -116,7 +110,6 @@ export const projects: PortfolioProject[] = [
     shortName: "INVITE",
     title: "Wedding Invitation Website",
     category: "Digital invitation",
-    theme: "wedding",
     description:
       "An interactive React and Vite wedding invitation with an animated envelope reveal, a live countdown, photo viewing, background music, and an RSVP dialog. Includes calendar downloads and reduced-motion support.",
     tags: ["React", "JavaScript", "CSS", "Vite"],
@@ -128,7 +121,6 @@ export const projects: PortfolioProject[] = [
     shortName: "BOT",
     title: "Personal Discord Assistant",
     category: "Productivity & automation",
-    theme: "discord",
     description:
       "A TypeScript Discord bot for tasks, habit check-ins, scheduled reminders, and ATMS audit updates through slash commands. Includes service monitoring and a daily agenda, with Node.js/SQLite and Cloudflare Workers/D1 deployment options.",
     tags: ["TypeScript", "Node.js", "discord.js", "SQLite", "Cloudflare Workers", "D1"],

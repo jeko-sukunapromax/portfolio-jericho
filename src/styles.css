@@ -2,41 +2,41 @@
 
 :root {
   font-family: "DM Sans", sans-serif;
-  color: #efeee9;
+  color: #eeeeee;
   background: #151515;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --bg: #151515;
-  --surface: #1c1c1c;
-  --surface-raised: #232323;
-  --text: #efeee9;
-  --secondary: #b3b2ae;
-  --muted: #92928b;
-  --line: #30302e;
-  --subtle-line: #272725;
-  --accent: #e2ab83;
-  --accent-strong: #f0bf99;
-  --accent-bg: #29231e;
-  --button-text: #201b17;
+  --surface: #1d1d1d;
+  --surface-raised: #272727;
+  --text: #eeeeee;
+  --secondary: #b6b6b6;
+  --muted: #9a9a9a;
+  --line: #383838;
+  --subtle-line: #2b2b2b;
+  --accent: #d4d4d4;
+  --accent-strong: #eeeeee;
+  --accent-bg: #2b2b2b;
+  --button-text: #1a1a1a;
   --header-bg: rgba(21, 21, 21, 0.91);
   color-scheme: dark;
 }
 :root[data-theme="light"] {
-  --bg: #f7f6f2;
-  --surface: #efeee9;
-  --surface-raised: #e8e7e1;
-  --text: #262622;
-  --secondary: #62625b;
-  --muted: #6a6a61;
-  --line: #dad9d1;
-  --subtle-line: #e5e4dd;
-  --accent: #8f542f;
-  --accent-strong: #a46137;
-  --accent-bg: #eee3d8;
-  --button-text: #fff9f1;
-  --header-bg: rgba(247, 246, 242, 0.92);
+  --bg: #f5f5f5;
+  --surface: #ededed;
+  --surface-raised: #e3e3e3;
+  --text: #242424;
+  --secondary: #585858;
+  --muted: #626262;
+  --line: #d2d2d2;
+  --subtle-line: #e0e0e0;
+  --accent: #505050;
+  --accent-strong: #333333;
+  --accent-bg: #e5e5e5;
+  --button-text: #fafafa;
+  --header-bg: rgba(245, 245, 245, 0.92);
   color-scheme: light;
 }
 * {
@@ -351,7 +351,7 @@ img {
   overflow: hidden;
   border-radius: 9px;
   background: #282828;
-  border: 1px solid #3a3835;
+  border: 1px solid #3a3a3a;
 }
 .portrait {
   width: 100%;
@@ -371,7 +371,7 @@ img {
   padding: 27px 13px 14px;
   font-size: 7px;
   letter-spacing: 1.05px;
-  color: #e4dfd8;
+  color: #e4e4e4;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
   font-weight: 500;
 }
@@ -381,7 +381,7 @@ img {
 .caption-dot {
   width: 4px;
   height: 4px;
-  background: #e2ab83;
+  background: #d4d4d4;
   border-radius: 50%;
 }
 .portrait-corner {
@@ -436,10 +436,10 @@ img {
   align-items: center;
   justify-content: center;
   font-size: 80px;
-  color: #e2ab83;
+  color: var(--accent);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  background: radial-gradient(ellipse at 50% 40%, #36312c, #1c1c1c);
+  background: radial-gradient(ellipse at 50% 40%, #363636, #1c1c1c);
 }
 .section-heading {
   display: flex;
@@ -655,25 +655,13 @@ img {
   gap: 24px;
 }
 .toolkit-card {
-  --tools-bg: #080d17;
-  --tools-border: #263244;
-  --tools-text: #f1f5f9;
-  --tools-tag-bg: #202c3d;
-  --tools-icon-bg: #20232c;
   min-width: 0;
   min-height: 196px;
   padding: 22px;
-  border: 1px solid var(--tools-border);
+  border: 1px solid var(--line);
   border-radius: 16px;
-  background: var(--tools-bg);
-  color: var(--tools-text);
-}
-:root[data-theme="light"] .toolkit-card {
-  --tools-bg: #ffffff;
-  --tools-border: #d5dce6;
-  --tools-text: #253044;
-  --tools-tag-bg: #e9eef5;
-  --tools-icon-bg: #edf0f5;
+  background: var(--surface);
+  color: var(--text);
 }
 .toolkit-card-header {
   display: flex;
@@ -688,7 +676,7 @@ img {
   width: 38px;
   height: 38px;
   border-radius: 8px;
-  background: var(--tools-icon-bg);
+  background: var(--surface-raised);
 }
 .toolkit-card-header h3 {
   min-width: 0;
@@ -710,8 +698,8 @@ img {
   max-width: 100%;
   padding: 4px 10px;
   border-radius: 6px;
-  background: var(--tools-tag-bg);
-  color: var(--tools-text);
+  background: var(--surface-raised);
+  color: var(--text);
   font-size: 12px;
   font-weight: 650;
   line-height: 1.5;
@@ -757,7 +745,7 @@ img {
   gap: 24px;
 }
 .project-card {
-  --project-accent: #a1cbb8;
+  --project-accent: var(--accent);
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -766,27 +754,6 @@ img {
   overflow: hidden;
   background: var(--surface);
   transition: border-color 0.2s, transform 0.2s;
-}
-.project-card--audit {
-  --project-accent: #e0b298;
-}
-.project-card--wedding {
-  --project-accent: #dfb0bd;
-}
-.project-card--discord {
-  --project-accent: #b9b8ef;
-}
-:root[data-theme="light"] .project-card--map {
-  --project-accent: #356e58;
-}
-:root[data-theme="light"] .project-card--audit {
-  --project-accent: #8f542f;
-}
-:root[data-theme="light"] .project-card--wedding {
-  --project-accent: #8c5064;
-}
-:root[data-theme="light"] .project-card--discord {
-  --project-accent: #5751a3;
 }
 .project-card:hover {
   border-color: var(--project-accent);

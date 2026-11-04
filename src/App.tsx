@@ -6,7 +6,6 @@ import {
   ArrowUp,
   ArrowUpRight,
   BookOpen,
-  Bot,
   Check,
   ChevronRight,
   Code2,
@@ -15,7 +14,6 @@ import {
   Github,
   GitBranch,
   LockKeyhole,
-  MapPinned,
   Menu,
   Moon,
   Server,
@@ -30,10 +28,8 @@ import { profile, projects, toolkitGroups } from "./content";
 type Section = "home" | "projects" | "contact";
 
 const toolkitIcons = {
-  ai: Bot,
   frontend: Wrench,
   backend: Server,
-  mapping: MapPinned,
   database: Database,
   build: GitBranch,
 };
@@ -66,7 +62,7 @@ function App() {
     document.documentElement.dataset.theme = theme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", theme === "dark" ? "#151515" : "#f7f6f2");
+      ?.setAttribute("content", theme === "dark" ? "#151515" : "#f5f5f5");
     try {
       localStorage.setItem("jericho-theme", theme);
     } catch {
@@ -475,7 +471,7 @@ function App() {
             <h2 id="toolkit-title">
               Built with good tools<span className="accent">.</span>
             </h2>
-            <p>The technologies and workflows behind my projects.</p>
+            <p>The tools behind my projects.</p>
           </div>
           <div className="toolkit-grid">
             {toolkitGroups.map((group) => {
@@ -533,7 +529,7 @@ function App() {
             {projects.map((project, index) => (
               <article
                 key={project.id}
-                className={`project-card project-card--${project.theme}`}
+                className="project-card"
                 aria-labelledby={`${project.id}-title`}
               >
                 <header className="project-card-header">
