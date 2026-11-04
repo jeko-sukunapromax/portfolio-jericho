@@ -41,7 +41,8 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     icon: "ai",
     tools: [
       "Claude Code (Advanced)", "Codex", "Antigravity", "n8n",
-      "Prompt Engineering", "Playwright", "chromedp", "Selenium",
+      "Prompt Engineering", "RAG (Retrieval-Augmented Generation)",
+      "Playwright", "chromedp", "Selenium",
     ],
   },
   {
