@@ -58,7 +58,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     title: "Backend",
     icon: "backend",
     tools: [
-      "PHP", "Laravel", "Node.js", "discord.js", "REST APIs",
+      "PHP", "Laravel", "Node.js", "discord.js", "REST APIs", "Webhooks",
       "Laravel Sanctum", "Laravel Jetstream", "RBAC",
     ],
   },
@@ -66,7 +66,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     id: "databases",
     title: "Databases & Data",
     icon: "database",
-    tools: ["PostgreSQL", "PostGIS", "SQLite", "Cloudflare D1", "GeoJSON", "Spatial Analysis"],
+    tools: ["SQL", "PostgreSQL", "PostGIS", "SQLite", "Cloudflare D1", "GeoJSON", "Spatial Analysis"],
   },
   {
     id: "cloud",
