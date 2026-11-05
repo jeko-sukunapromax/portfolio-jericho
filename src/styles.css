@@ -712,6 +712,56 @@ img {
   margin-top: 13px;
   margin-bottom: 10px;
 }
+.timeline-item-work {
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 16px;
+}
+.timeline-item-work .timeline-marker {
+  padding-top: 0;
+}
+.timeline-item-work .timeline-marker:after {
+  top: 36px;
+  bottom: -24px;
+}
+.timeline-item-work:last-child .timeline-marker:after {
+  display: none;
+}
+.timeline-item-work .timeline-marker > .timeline-initials {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: none;
+  color: var(--secondary);
+  font-size: 10px;
+  font-weight: 600;
+}
+.timeline-item-work .timeline-period {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  margin-bottom: 4px;
+}
+.timeline-item-work h3 {
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+.timeline-item-work .timeline-type {
+  display: block;
+  color: var(--secondary);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.timeline-item-work .timeline-highlights {
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 11px;
+}
 .experience-bottom {
   border-top: 1px solid var(--line);
   margin: 20px 0 0;

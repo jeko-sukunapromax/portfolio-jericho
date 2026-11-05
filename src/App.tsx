@@ -93,7 +93,7 @@ function App() {
   const [activeSection, setActiveSection] = useState<Section>("home");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [experienceTab, setExperienceTab] = useState<"work" | "education">(
-    "education",
+    "work",
   );
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -333,6 +333,7 @@ function App() {
                     className="button button-secondary resume-button"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View Jericho Ivan Villamor's resume (PDF, opens in a new tab)"
                   >
                     Resume <FileText size={16} aria-hidden="true" />
                   </a>
@@ -490,14 +491,29 @@ function App() {
                           return (
                             <div
                               className={
-                                item.logo
-                                  ? "timeline-item timeline-item-with-logo"
-                                  : "timeline-item"
+                                tab === "work"
+                                  ? "timeline-item timeline-item-work"
+                                  : item.logo
+                                    ? "timeline-item timeline-item-with-logo"
+                                    : "timeline-item"
                               }
-                              key={`${item.title}-${item.period}`}
+                              key={`${item.organization}-${item.title}-${item.period}`}
                             >
                               <div className="timeline-marker">
-                                {item.logo ? (
+                                {tab === "work" ? (
+                                  <span
+                                    className="timeline-initials"
+                                    aria-hidden="true"
+                                  >
+                                    {item.initials ??
+                                      item.organization
+                                        .split(/\s+/)
+                                        .slice(0, 2)
+                                        .map((word) => word[0])
+                                        .join("")
+                                        .toUpperCase()}
+                                  </span>
+                                ) : item.logo ? (
                                   <img
                                     className="timeline-logo"
                                     src={item.logo}
@@ -515,9 +531,11 @@ function App() {
                                 <span className="timeline-period">
                                   {item.period}
                                 </span>
-                                <h3>{item.title}</h3>
+                                <h3>
+                                  {tab === "work" ? item.organization : item.title}
+                                </h3>
                                 <span className="timeline-type">
-                                  {item.organization}
+                                  {tab === "work" ? item.title : item.organization}
                                 </span>
                                 {item.description && <p>{item.description}</p>}
                                 {hasHighlights && (

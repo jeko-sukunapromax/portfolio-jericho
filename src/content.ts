@@ -3,6 +3,7 @@ export interface BackgroundEntry {
   organization: string;
   period: string;
   description?: string;
+  initials?: string;
   logo?: string;
   highlights?: string[];
 }
@@ -99,17 +100,48 @@ export const profile: PortfolioContent = {
   github: "https://github.com/jeko-sukunapromax",
   instagram: "https://www.instagram.com/jericho.dev",
   email: "villamorjerichoivan@gmail.com",
-  resume: null,
+  resume: "/Jericho-Ivan-Villamor-Resume.pdf",
   location: null,
   bio: "A little corner of the internet for my work, ideas, and the things I’m building.",
   portrait: "/images/jericho-portrait.webp",
   work: [
     {
+      title: "Full Stack Engineer",
+      organization: "LGU Bayambang (Remote)",
+      period: "Jun 2026 – Sep 2026",
+      initials: "LB",
+      description: "Geographic Information System",
+      highlights: [
+        "Developed a Geographic Information System for barangay profiles, population, land use, facilities, and hazard information.",
+        "Implemented boundary management, spatial analysis, data imports and exports, and role-based administration.",
+      ],
+    },
+    {
+      title: "Junior Full Stack Engineer Intern",
+      organization: "LGU Bayambang",
+      period: "Jan 2026 – Jun 2026",
+      initials: "LB",
+      description: "Audit Tracking Management System",
+      highlights: [
+        "Helped replace a manual, paper-based audit workflow with a digital Audit Tracking Management System for managing projects, findings, recommendations, and follow-ups.",
+        "Helped gather user requirements and translate them into system enhancements.",
+      ],
+    },
+    {
       title: "Salesforce Developer Internship (Remote)",
       organization: "SmartBridge",
       period: "2025–2026",
-      description:
-        "Completed the Salesforce VIP Program, building a foundation in Apex programming, Lightning Web Components (LWC), and core CRM concepts. Strengthened cloud solution development by integrating industry-recognized methodologies with practical Salesforce implementation techniques.",
+      initials: "SB",
+      highlights: [
+        "Completed the Salesforce VIP Program, building a foundation in Apex programming, Lightning Web Components (LWC), and core CRM concepts.",
+        "Strengthened cloud solution development by integrating industry-recognized methodologies with practical Salesforce implementation techniques.",
+      ],
+    },
+    {
+      title: "Junior Full Stack Engineer",
+      organization: "Leisure Coast Resort (Philippines)",
+      period: "Aug 2024 – Jan 2025",
+      initials: "LC",
     },
   ],
   education: [
@@ -189,7 +221,7 @@ export const projects: PortfolioProject[] = [
       "A Laravel and Livewire audit platform for managing audit projects, findings, and recommendations. Includes office management, role-based permissions, and a Chart.js dashboard for reviewing audit activity.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "Chart.js"],
     highlight:
-      "Connected audit projects, findings, and recommendation follow-ups in one role-based workflow.",
+      "Replaced manual, paper-based audit tracking with a digital workflow for audit projects, findings, and recommendation follow-ups.",
   },
   {
     id: "wedding-invitation",

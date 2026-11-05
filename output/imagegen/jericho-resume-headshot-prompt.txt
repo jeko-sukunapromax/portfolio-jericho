@@ -1,0 +1,9 @@
+Mode: built-in image_gen tool; identity-preserving edit.
+Image 1: current resume photo attached by the user.
+Image 2: public/images/jericho-portrait.png, higher-resolution identity reference.
+
+Final prompt:
+Use case: identity-preserve. Asset type: replacement professional résumé headshot, photorealistic portrait.
+Input Image 1: the current résumé photo to replace; the screenshot's outer white margin is not part of the desired photo. Input Image 2: a higher-resolution portrait of the SAME person; use this as the primary face and identity reference.
+Create one clean, natural professional headshot of this exact person. Change the clothing to a plain dark navy blazer over a light blue open-collar shirt, no tie, no pinstripes. Use a plain very light neutral gray studio background and soft, even studio lighting. He is facing the camera with a calm approachable expression and a subtle closed-mouth smile. Preserve his exact facial structure, skin tone, age, short curly dark hair, clear-framed glasses, mustache and small goatee; preserve realistic skin texture and natural proportions. Do not beautify or reshape his face. Keep the eyes and facial details sharp, glasses symmetrical with no distracting glare.
+Composition: single vertical head-and-shoulders photograph, near 9:10 aspect ratio, head centered, full hairstyle visible with a modest margin above it, shoulders visible, a clean chest-level crop suitable for the small portrait slot at the top right of a résumé. Output the photo edge to edge without borders or added white margins. No text, watermark, logos, decorative objects, extra people, collages or multiple variants.

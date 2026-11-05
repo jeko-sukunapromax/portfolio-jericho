@@ -1,0 +1,15 @@
+DirectoryIndex index.html
+Options -Indexes
+
+<IfModule mod_mime.c>
+  AddType application/pdf .pdf
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^(index\.html|Jericho-Ivan-Villamor-Resume\.pdf)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.pdf$">
+    Header set X-Content-Type-Options "nosniff"
+  </FilesMatch>
+</IfModule>
