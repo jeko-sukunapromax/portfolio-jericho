@@ -88,7 +88,7 @@ function App() {
   const [activeSection, setActiveSection] = useState<Section>("home");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [experienceTab, setExperienceTab] = useState<"work" | "education">(
-    "work",
+    profile.work.length > 0 ? "work" : "education",
   );
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -475,13 +475,29 @@ function App() {
                       <div className="timeline-items">
                         {entries.map((item) => (
                           <div
-                            className="timeline-item"
+                            className={
+                              item.logo
+                                ? "timeline-item timeline-item-with-logo"
+                                : "timeline-item"
+                            }
                             key={`${item.title}-${item.period}`}
                           >
                             <div className="timeline-marker">
-                              <span />
+                              {item.logo ? (
+                                <img
+                                  className="timeline-logo"
+                                  src={item.logo}
+                                  alt={`${item.title} logo`}
+                                  width="44"
+                                  height="44"
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                              ) : (
+                                <span />
+                              )}
                             </div>
-                            <div>
+                            <div className="timeline-copy">
                               <span className="timeline-period">
                                 {item.period}
                               </span>
@@ -489,7 +505,14 @@ function App() {
                               <span className="timeline-type">
                                 {item.organization}
                               </span>
-                              <p>{item.description}</p>
+                              {item.description && <p>{item.description}</p>}
+                              {item.highlights && item.highlights.length > 0 && (
+                                <ul className="timeline-highlights">
+                                  {item.highlights.map((highlight) => (
+                                    <li key={highlight}>{highlight}</li>
+                                  ))}
+                                </ul>
+                              )}
                             </div>
                           </div>
                         ))}
@@ -523,10 +546,12 @@ function App() {
                         </div>
                       </div>
                     )}
-                    <div className="experience-bottom">
-                      <span className="tiny-dot" /> A story still being written{" "}
-                      <span>↗</span>
-                    </div>
+                    {entries.length === 0 && (
+                      <div className="experience-bottom">
+                        <span className="tiny-dot" /> A story still being written{" "}
+                        <span>↗</span>
+                      </div>
+                    )}
                   </div>
                 );
               })}

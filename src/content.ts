@@ -2,7 +2,9 @@ export interface BackgroundEntry {
   title: string;
   organization: string;
   period: string;
-  description: string;
+  description?: string;
+  logo?: string;
+  highlights?: string[];
 }
 
 export interface PortfolioContent {
@@ -94,7 +96,15 @@ export const profile: PortfolioContent = {
   bio: "A little corner of the internet for my work, ideas, and the things I’m building.",
   portrait: "/images/jericho-portrait.webp",
   work: [],
-  education: [],
+  education: [
+    {
+      title: "Universidad de Dagupan",
+      organization: "Bachelor of Science in Information Technology",
+      period: "2022–2026",
+      logo: "/images/universidad-de-dagupan-logo.jpg",
+      highlights: ["Focus on Web & Software Development."],
+    },
+  ],
 };
 
 export const projects: PortfolioProject[] = [

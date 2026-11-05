@@ -607,8 +607,62 @@ img {
 }
 .timeline-item {
   display: grid;
-  grid-template-columns: 16px 1fr;
+  grid-template-columns: 16px minmax(0, 1fr);
   gap: 15px;
+}
+.timeline-copy {
+  min-width: 0;
+}
+.timeline-item.timeline-item-with-logo {
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 18px;
+}
+.timeline-item-with-logo .timeline-marker {
+  padding-top: 0;
+}
+.timeline-item-with-logo .timeline-marker:after {
+  top: 50px;
+  bottom: -12px;
+}
+.timeline-logo {
+  position: relative;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+}
+.timeline-item-with-logo .timeline-period {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin-bottom: 6px;
+}
+.timeline-item.timeline-item-with-logo h3 {
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+.timeline-item-with-logo .timeline-type {
+  display: block;
+  color: var(--secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.timeline-highlights {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 6px;
+  padding-left: 16px;
+  color: var(--secondary);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.timeline-highlights li::marker {
+  color: var(--muted);
 }
 .timeline-marker {
   position: relative;
