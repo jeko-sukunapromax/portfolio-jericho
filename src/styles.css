@@ -382,20 +382,9 @@ img {
 .muted-icon {
   color: var(--muted);
 }
-.scroll-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 35px;
-}
-.scroll-hint:hover {
-  color: var(--accent);
-}
 .portrait-area {
   position: relative;
-  padding: 14px 10px 52px;
+  padding: 14px 10px;
   align-self: center;
 }
 .portrait-frame {
@@ -454,33 +443,10 @@ img {
 }
 .portrait-corner-bottom {
   right: 0;
-  bottom: 42px;
+  bottom: 4px;
   border-right: 1px solid;
   border-bottom: 1px solid;
   border-radius: 0 0 11px;
-}
-.portrait-note {
-  position: absolute;
-  bottom: 7px;
-  right: 1px;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  transform: rotate(-7deg);
-  color: var(--accent);
-}
-.portrait-note span {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 17px;
-}
-.portrait-index {
-  position: absolute;
-  bottom: 17px;
-  left: 10px;
-  font-size: 7px;
-  letter-spacing: 1.4px;
-  color: var(--muted);
 }
 .portrait-fallback {
   width: 100%;
@@ -1292,17 +1258,6 @@ img {
     padding: 10px 12px;
     gap: 7px;
   }
-  .scroll-hint {
-    font-size: 9px;
-    margin-top: 27px;
-  }
-  .portrait-note span {
-    font-size: 15px;
-  }
-  .portrait-index {
-    font-size: 6px;
-    letter-spacing: 0.8px;
-  }
   .portrait-caption {
     font-size: 5px;
     letter-spacing: 0.7px;
@@ -1405,14 +1360,9 @@ img {
     font-size: 11px;
     padding: 11px 14px;
   }
-  .scroll-hint {
-    margin-top: 23px;
-    font-size: 10px;
-  }
   .portrait-area {
     width: 250px;
     justify-self: center;
-    padding-bottom: 44px;
     margin-bottom: 4px;
   }
   .portrait-frame {
@@ -1421,18 +1371,9 @@ img {
   .portrait {
     object-position: 50% 37%;
   }
-  .portrait-corner-bottom {
-    bottom: 34px;
-  }
   .portrait-caption {
     font-size: 6px;
     letter-spacing: 1px;
-  }
-  .portrait-note {
-    bottom: 1px;
-  }
-  .portrait-index {
-    bottom: 11px;
   }
   .section-heading {
     margin-bottom: 25px;

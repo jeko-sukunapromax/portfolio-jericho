@@ -102,7 +102,7 @@ export const profile: PortfolioContent = {
   email: "villamorjerichoivan@gmail.com",
   resume: "/Jericho-Ivan-Villamor-Resume.pdf",
   location: null,
-  bio: "A little corner of the internet for my work, ideas, and the things I’m building.",
+  bio: "I build reliable web applications, from thoughtful interfaces to the systems behind them.",
   portrait: "/images/jericho-portrait.webp",
   work: [
     {

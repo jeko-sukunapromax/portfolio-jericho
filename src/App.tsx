@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import {
-  ArrowDown,
-  ArrowDownLeft,
   ArrowUp,
   ArrowUpRight,
   BookOpen,
@@ -310,10 +308,7 @@ function App() {
               {profile.name}
               <span className="name-line" />
             </div>
-            <h2 className="hero-tagline">
-              Curiosity. Creativity.
-              <br />A little bit of code.
-            </h2>
+            <h2 className="hero-tagline">Full Stack Engineer</h2>
             <p className="hero-description">{profile.bio}</p>
             <p className="hero-escalation">
               For escalations, please contact{" "}
@@ -325,13 +320,6 @@ function App() {
               .
             </p>
             <div className="hero-actions">
-              <a
-                className="button button-primary"
-                href="#projects"
-                onClick={() => navigate("projects")}
-              >
-                Explore my work <ArrowUpRight size={17} />
-              </a>
               <div className="hero-contact-links">
                 {profile.resume ? (
                   <a
@@ -360,9 +348,6 @@ function App() {
                 <SocialLinks />
               </div>
             </div>
-            <a className="scroll-hint" href="#about">
-              <ArrowDown size={14} /> A little more about me
-            </a>
           </div>
           <div className="portrait-area">
             <div className="portrait-corner portrait-corner-top" />
@@ -391,11 +376,6 @@ function App() {
               </div>
             </div>
             <div className="portrait-corner portrait-corner-bottom" />
-            <div className="portrait-note">
-              <ArrowDownLeft size={23} strokeWidth={1.2} />
-              <span>yep, that’s me.</span>
-            </div>
-            <span className="portrait-index">01 / INTRODUCTION</span>
           </div>
         </section>
 
