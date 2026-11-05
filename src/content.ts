@@ -113,7 +113,7 @@ export const profile: PortfolioContent = {
         "Developed a Geographic Information System for barangay profiles, population, land use, facilities, and hazard information.",
         "Integrated real assessor records with geographic information for Bayambang using PostgreSQL and PostGIS.",
         "Implemented boundary management, spatial analysis, data imports and exports, and role-based administration.",
-        "Embedded Ask Bayambang, a Gemini-powered AI chatbot for public information, property searches, and nearby places.",
+        "Built the Bayambang Investor Portal as a one-stop shop for browsing property listings, viewing map locations, and submitting and tracking inquiries.",
       ],
     },
     {
@@ -207,8 +207,8 @@ export const projects: PortfolioProject[] = [
     title: "Geographic Information System",
     category: "Geospatial platform",
     description:
-      "A Laravel and Livewire mapping platform powered by PostgreSQL and PostGIS, combining real assessor records with barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration. Includes Ask Bayambang, an embedded Gemini-powered AI chatbot for public information, property searches, and nearby places.",
-    tags: ["PHP", "Laravel", "Livewire", "PostgreSQL", "PostGIS", "Tailwind CSS", "GeoJSON", "Gemini API", "AI Chatbot"],
+      "A Laravel and Livewire mapping platform powered by PostgreSQL and PostGIS, combining real assessor records with barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration. Includes the Bayambang Investor Portal, a one-stop shop for browsing property listings, viewing map locations, and submitting and tracking inquiries.",
+    tags: ["PHP", "Laravel", "Livewire", "PostgreSQL", "PostGIS", "Tailwind CSS", "GeoJSON"],
     highlight:
       "27,000+ data records for Bayambang, organized in one interactive mapping platform.",
   },
