@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import {
   ArrowDown,
   ArrowDownLeft,
-  ArrowRight,
   ArrowUp,
   ArrowUpRight,
   BookOpen,
@@ -43,39 +42,46 @@ const issueYearFormat = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 });
 
-function SocialLinks() {
+function SocialLinks({ showLabels = false }: { showLabels?: boolean }) {
+  const links = [
+    { label: "GitHub", href: profile.github, icon: Github, external: true },
+    { label: "Instagram", href: profile.instagram, icon: Instagram, external: true },
+    ...(profile.email
+      ? [{ label: "Email", href: `mailto:${profile.email}`, icon: Mail, external: false }]
+      : []),
+  ];
+
   return (
-    <nav className="social-links" aria-label="Social and contact links">
-      <a
-        className="icon-button"
-        href={profile.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-        title="GitHub"
-      >
-        <Github size={17} aria-hidden="true" />
-      </a>
-      <a
-        className="icon-button"
-        href={profile.instagram}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-        title="Instagram"
-      >
-        <Instagram size={17} aria-hidden="true" />
-      </a>
-      {profile.email && (
-        <a
-          className="icon-button"
-          href={`mailto:${profile.email}`}
-          aria-label="Email Jericho Villamor"
-          title={profile.email}
-        >
-          <Mail size={17} aria-hidden="true" />
-        </a>
-      )}
+    <nav
+      className={showLabels ? "contact-social-list" : "social-links"}
+      aria-label={showLabels ? "Ways to get in touch" : "Social and contact links"}
+    >
+      {links.map((link) => {
+        const Icon = link.icon;
+
+        return (
+          <a
+            key={link.label}
+            className={showLabels ? "contact-social-link" : "icon-button"}
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noopener noreferrer" : undefined}
+            aria-label={link.label === "Email" ? `Email ${profile.name}` : link.label}
+            title={link.label === "Email" ? profile.email ?? undefined : link.label}
+          >
+            {showLabels ? (
+              <>
+                <span className="contact-social-icon">
+                  <Icon size={23} aria-hidden="true" />
+                </span>
+                <span>{link.label}</span>
+              </>
+            ) : (
+              <Icon size={17} aria-hidden="true" />
+            )}
+          </a>
+        );
+      })}
     </nav>
   );
 }
@@ -395,38 +401,18 @@ function App() {
 
         <section
           id="about"
-          className="about-section"
-          aria-labelledby="about-title"
+          className="experience-section"
+          aria-labelledby="experience-title"
         >
           <div className="section-heading">
             <div>
-              <div className="section-kicker">A BIT OF BACKGROUND</div>
-              <h2 id="about-title">
-                Every chapter counts<span className="accent">.</span>
+              <h2 id="experience-title">
+                Experience & education<span className="accent">.</span>
               </h2>
             </div>
-            <span className="section-number">01 — ABOUT</span>
+            <span className="section-number">01 — EXPERIENCE</span>
           </div>
-          <div className="about-grid">
-            <div className="about-copy">
-              <span className="small-star">
-                <Sparkles size={23} strokeWidth={1.25} />
-              </span>
-              <h3>
-                A person.
-                <br />
-                An ongoing story.
-              </h3>
-              <p>
-                My background combines Information Technology studies at
-                Universidad de Dagupan with web development projects and
-                training in Salesforce, SQL, and networking.
-              </p>
-              <div className="small-note">
-                <span className="status-dot" /> Learning through projects and practice.
-              </div>
-            </div>
-            <div className="experience-card">
+          <div className="experience-card">
               <div
                 className="experience-tabs"
                 role="tablist"
@@ -603,7 +589,6 @@ function App() {
                   </div>
                 );
               })}
-            </div>
           </div>
         </section>
 
@@ -730,46 +715,38 @@ function App() {
           className="contact-section"
           aria-labelledby="contact-title"
         >
-          <div className="contact-topline">
-            <span className="section-kicker">
-              <span className="status-dot" /> GOOD THINGS START WITH A
-              CONVERSATION
-            </span>
-            <span className="section-number">03 — CONTACT</span>
-          </div>
-          <div className="contact-content">
-            <div>
-              <h2 id="contact-title" tabIndex={-1}>
-                Have something in mind<span className="accent">?</span>
-              </h2>
-              <p>A project, an idea, or just a hello. I’d love to hear it.</p>
-              {profile.email && (
-                <a className="contact-email" href={`mailto:${profile.email}`}>
-                  {profile.email}
+          <h2 id="contact-title" tabIndex={-1}>
+            get in touch.
+          </h2>
+          <p className="contact-intro">
+            Open to engineering roles, freelance projects, and technical
+            collaborations. Let’s build something.
+          </p>
+          <div className="contact-columns">
+            <div className="contact-socials">
+              <h3>socials</h3>
+              <SocialLinks showLabels />
+            </div>
+            <div className="contact-direct">
+              <h3>direct email</h3>
+              <p>
+                For opportunities, project enquiries, and collaborations, send
+                me a message.
+              </p>
+              {profile.email ? (
+                <a className="contact-button" href={`mailto:${profile.email}`}>
+                  <Mail size={16} aria-hidden="true" /> Say Hello
                 </a>
+              ) : (
+                <button
+                  type="button"
+                  className="contact-button"
+                  onClick={(event) => openContactDialog(event.currentTarget)}
+                >
+                  <Mail size={16} aria-hidden="true" /> Say Hello
+                </button>
               )}
             </div>
-            {profile.email ? (
-              <a
-                className="button contact-button"
-                href={`mailto:${profile.email}`}
-              >
-                Let’s talk <ArrowUpRight size={18} />
-              </a>
-            ) : (
-              <button
-                className="button contact-button"
-                onClick={(event) => openContactDialog(event.currentTarget)}
-              >
-                Let’s connect <ArrowUpRight size={18} />
-              </button>
-            )}
-          </div>
-          <div className="contact-bottom">
-            <span>{profile.name}</span>
-            <span className="handwritten">
-              on to the next good thing. <ArrowRight size={15} />
-            </span>
           </div>
         </section>
       </main>
