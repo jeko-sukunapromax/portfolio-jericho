@@ -327,22 +327,6 @@ img {
 .button.resume-button {
   border-radius: 11px;
 }
-.resume-button:disabled {
-  cursor: default;
-  text-align: left;
-}
-.resume-button:disabled:hover {
-  transform: none;
-  background: transparent;
-  border-color: var(--line);
-}
-.resume-status {
-  display: block;
-  font-size: 9px;
-  font-weight: 450;
-  line-height: 1.4;
-  color: var(--muted);
-}
 .button {
   display: inline-flex;
   align-items: center;

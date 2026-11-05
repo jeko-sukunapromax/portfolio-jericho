@@ -5,6 +5,11 @@ Options -Indexes
   AddType application/pdf .pdf
 </IfModule>
 
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^Jericho-Ivan-Villamor-Resume\.pdf$ https://jerichovillamordev.com/#contact [R=302,L,NE,NC]
+</IfModule>
+
 <IfModule mod_headers.c>
   <FilesMatch "^(index\.html|Jericho-Ivan-Villamor-Resume\.pdf)$">
     Header set Cache-Control "no-cache"

@@ -109,6 +109,9 @@ function App() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const contactValue = profile.email ?? profile.name;
   const contactLabel = profile.email ? "email" : "name";
+  const resumeRequestLink = profile.email
+    ? `mailto:${profile.email}?subject=${encodeURIComponent("Resume request")}&body=${encodeURIComponent("Hi Jericho,\n\nI would like to request a copy of your resume.\n\nThank you.")}`
+    : null;
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -321,27 +324,22 @@ function App() {
             </p>
             <div className="hero-actions">
               <div className="hero-contact-links">
-                {profile.resume ? (
+                {resumeRequestLink ? (
                   <a
-                    href={profile.resume}
+                    href={resumeRequestLink}
                     className="button button-secondary resume-button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="View Jericho Ivan Villamor's resume (PDF, opens in a new tab)"
+                    aria-label="Request Jericho Ivan Villamor's resume by email"
                   >
-                    Resume <FileText size={16} aria-hidden="true" />
+                    Request Resume <FileText size={16} aria-hidden="true" />
                   </a>
                 ) : (
                   <button
                     type="button"
                     className="button button-secondary resume-button"
-                    title="Resume coming soon"
-                    disabled
+                    aria-haspopup="dialog"
+                    onClick={(event) => openContactDialog(event.currentTarget)}
                   >
-                    <span>
-                      Resume
-                      <span className="resume-status">Coming soon</span>
-                    </span>
+                    Request Resume
                     <FileText size={16} aria-hidden="true" />
                   </button>
                 )}
@@ -710,8 +708,8 @@ function App() {
             <div className="contact-direct">
               <h3>direct email</h3>
               <p>
-                For opportunities, project enquiries, and collaborations, send
-                me a message.
+                For opportunities, project enquiries, or a copy of my résumé,
+                send me a message.
               </p>
               {profile.email ? (
                 <a className="contact-button" href={`mailto:${profile.email}`}>
