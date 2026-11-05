@@ -96,7 +96,7 @@ function App() {
   const [activeSection, setActiveSection] = useState<Section>("home");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [experienceTab, setExperienceTab] = useState<"work" | "education">(
-    profile.work.length > 0 ? "work" : "education",
+    "education",
   );
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -555,6 +555,44 @@ function App() {
                         </div>
                       </div>
                     )}
+                    {tab === "education" && trainingCertificates.length > 0 && (
+                      <section
+                        id="training"
+                        className="education-training"
+                        aria-labelledby="training-title"
+                      >
+                        <h3 id="training-title">Training & certificates</h3>
+                        <ul
+                          className="training-list"
+                          aria-label="Training and certificates"
+                        >
+                          {trainingCertificates.map((certificate) => (
+                            <li className="training-item" key={certificate.id}>
+                              <Award
+                                className="training-icon"
+                                size={16}
+                                strokeWidth={1.6}
+                                aria-hidden="true"
+                              />
+                              <div>
+                                <h4>{certificate.title}</h4>
+                                <p className="training-issuer">
+                                  {certificate.issuer}{" "}
+                                  <span aria-hidden="true">·</span>{" "}
+                                  {certificate.kind}
+                                </p>
+                                <time dateTime={certificate.issuedOn}>
+                                  Issued{" "}
+                                  {issueDateFormat.format(
+                                    new Date(certificate.issuedOn),
+                                  )}
+                                </time>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </section>
+                    )}
                     {entries.length === 0 && (
                       <div className="experience-bottom">
                         <span className="tiny-dot" /> A story still being written{" "}
@@ -566,42 +604,6 @@ function App() {
               })}
             </div>
           </div>
-        </section>
-
-        <section
-          id="training"
-          className="training-section"
-          aria-labelledby="training-title"
-        >
-          <div className="section-heading">
-            <div>
-              <div className="section-kicker">CONTINUING TO LEARN</div>
-              <h2 id="training-title">
-                Training & certificates<span className="accent">.</span>
-              </h2>
-              <p className="training-description">
-                Program and course completions in development, databases,
-                networking, and cybersecurity.
-              </p>
-            </div>
-          </div>
-          <ul className="training-grid" aria-label="Training and certificates">
-            {trainingCertificates.map((certificate) => (
-              <li className="training-card" key={certificate.id}>
-                <div className="training-card-topline">
-                  <span className="training-kind">
-                    <Award size={15} strokeWidth={1.6} aria-hidden="true" />
-                    {certificate.kind}
-                  </span>
-                  <time dateTime={certificate.issuedOn}>
-                    Issued {issueDateFormat.format(new Date(certificate.issuedOn))}
-                  </time>
-                </div>
-                <h3>{certificate.title}</h3>
-                <p className="training-issuer">{certificate.issuer}</p>
-              </li>
-            ))}
-          </ul>
         </section>
 
         <section id="tools" className="toolkit-section" aria-labelledby="toolkit-title">
