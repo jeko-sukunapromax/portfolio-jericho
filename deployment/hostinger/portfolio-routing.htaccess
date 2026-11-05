@@ -1,0 +1,22 @@
+# BEGIN JERICHO PORTFOLIO DOMAIN
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.jerichovillamordev\.com(?::[0-9]+)?$ [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+RewriteRule ^ https://jerichovillamordev.com%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^jerichovillamordev\.com(?::[0-9]+)?$ [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
+RewriteRule ^ https://jerichovillamordev.com%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^jerichovillamordev\.com(?::[0-9]+)?$ [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+RewriteCond %{REQUEST_URI} !^/jericho-portfolio(?:/|$) [NC]
+RewriteRule ^(.*)$ jericho-portfolio/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^jerichovillamordev\.com(?::[0-9]+)?$ [NC]
+RewriteCond %{REQUEST_URI} ^/jericho-portfolio(?:/|$) [NC]
+RewriteRule ^ - [L]
+# END JERICHO PORTFOLIO DOMAIN
