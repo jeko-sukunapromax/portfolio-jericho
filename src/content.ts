@@ -38,6 +38,14 @@ export interface PortfolioToolGroup {
   tools: string[];
 }
 
+export interface PortfolioTrainingCertificate {
+  id: string;
+  title: string;
+  issuer: string;
+  issuedOn: string;
+  kind: "Program completion" | "Course completion";
+}
+
 export const toolkitGroups: PortfolioToolGroup[] = [
   {
     id: "ai-automation",
@@ -55,7 +63,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     icon: "frontend",
     tools: [
       "React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS",
-      "Blade", "Livewire", "Leaflet.js", "Chart.js",
+      "Blade", "Livewire", "Leaflet.js", "Chart.js", "Lightning Web Components (LWC)",
     ],
   },
   {
@@ -64,7 +72,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     icon: "backend",
     tools: [
       "PHP", "Laravel", "Node.js", "discord.js", "REST APIs", "Webhooks",
-      "Laravel Sanctum", "Laravel Jetstream", "RBAC",
+      "Laravel Sanctum", "Laravel Jetstream", "RBAC", "Apex",
     ],
   },
   {
@@ -78,7 +86,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     title: "Cloud, DevOps & Infra",
     icon: "cloud",
     tools: [
-      "Railway", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines",
+      "Railway", "Salesforce", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines",
       "Git/GitHub", "Windows Server", "Linux", "Cloudflare Workers", "Wrangler",
       "Vite", "npm", "Composer",
     ],
@@ -95,7 +103,15 @@ export const profile: PortfolioContent = {
   location: null,
   bio: "A little corner of the internet for my work, ideas, and the things I’m building.",
   portrait: "/images/jericho-portrait.webp",
-  work: [],
+  work: [
+    {
+      title: "Salesforce Developer Internship",
+      organization: "SmartBridge",
+      period: "2025–2026",
+      description:
+        "Completed the Salesforce VIP Program, building a foundation in Apex programming, Lightning Web Components (LWC), and core CRM concepts.",
+    },
+  ],
   education: [
     {
       title: "Universidad de Dagupan",
@@ -106,6 +122,51 @@ export const profile: PortfolioContent = {
     },
   ],
 };
+
+export const trainingCertificates: PortfolioTrainingCertificate[] = [
+  {
+    id: "salesforce-vip",
+    title: "Salesforce VIP Program",
+    issuer: "SmartBridge",
+    issuedOn: "2026-06-01",
+    kind: "Program completion",
+  },
+  {
+    id: "oracle-sql",
+    title: "Database Programming with SQL",
+    issuer: "Oracle Academy",
+    issuedOn: "2026-05-16",
+    kind: "Course completion",
+  },
+  {
+    id: "cisco-enterprise-networking",
+    title: "CCNA: Enterprise Networking, Security, and Automation",
+    issuer: "Cisco",
+    issuedOn: "2025-10-14",
+    kind: "Course completion",
+  },
+  {
+    id: "cisco-cybersecurity",
+    title: "Introduction to Cybersecurity",
+    issuer: "Cisco",
+    issuedOn: "2025-05-30",
+    kind: "Course completion",
+  },
+  {
+    id: "cisco-switching-routing",
+    title: "CCNA: Switching, Routing, and Wireless Essentials",
+    issuer: "Cisco",
+    issuedOn: "2025-01-22",
+    kind: "Course completion",
+  },
+  {
+    id: "cisco-introduction-to-networks",
+    title: "CCNA: Introduction to Networks",
+    issuer: "Cisco",
+    issuedOn: "2024-07-11",
+    kind: "Course completion",
+  },
+];
 
 export const projects: PortfolioProject[] = [
   {

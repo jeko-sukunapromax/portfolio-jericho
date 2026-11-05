@@ -5,6 +5,7 @@ import {
   ArrowRight,
   ArrowUp,
   ArrowUpRight,
+  Award,
   BookOpen,
   Bot,
   Check,
@@ -26,7 +27,7 @@ import {
   Wrench,
   X,
 } from "lucide-react";
-import { profile, projects, toolkitGroups } from "./content";
+import { profile, projects, toolkitGroups, trainingCertificates } from "./content";
 
 type Section = "home" | "projects" | "contact";
 
@@ -37,6 +38,13 @@ const toolkitIcons = {
   database: Database,
   cloud: Cloud,
 };
+
+const issueDateFormat = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
 function SocialLinks() {
   return (
@@ -412,11 +420,12 @@ function App() {
                 An ongoing story.
               </h3>
               <p>
-                This is where I’ll share the journey — what I’m learning, what
-                I’m working on, and the experiences along the way.
+                My background combines Information Technology studies at
+                Universidad de Dagupan with web development projects and
+                training in Salesforce, SQL, and networking.
               </p>
               <div className="small-note">
-                <span className="status-dot" /> More of my story, coming soon.
+                <span className="status-dot" /> Learning through projects and practice.
               </div>
             </div>
             <div className="experience-card">
@@ -557,6 +566,42 @@ function App() {
               })}
             </div>
           </div>
+        </section>
+
+        <section
+          id="training"
+          className="training-section"
+          aria-labelledby="training-title"
+        >
+          <div className="section-heading">
+            <div>
+              <div className="section-kicker">CONTINUING TO LEARN</div>
+              <h2 id="training-title">
+                Training & certificates<span className="accent">.</span>
+              </h2>
+              <p className="training-description">
+                Program and course completions in development, databases,
+                networking, and cybersecurity.
+              </p>
+            </div>
+          </div>
+          <ul className="training-grid" aria-label="Training and certificates">
+            {trainingCertificates.map((certificate) => (
+              <li className="training-card" key={certificate.id}>
+                <div className="training-card-topline">
+                  <span className="training-kind">
+                    <Award size={15} strokeWidth={1.6} aria-hidden="true" />
+                    {certificate.kind}
+                  </span>
+                  <time dateTime={certificate.issuedOn}>
+                    Issued {issueDateFormat.format(new Date(certificate.issuedOn))}
+                  </time>
+                </div>
+                <h3>{certificate.title}</h3>
+                <p className="training-issuer">{certificate.issuer}</p>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section id="tools" className="toolkit-section" aria-labelledby="toolkit-title">
