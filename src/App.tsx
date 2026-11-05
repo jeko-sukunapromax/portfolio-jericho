@@ -5,7 +5,6 @@ import {
   ArrowRight,
   ArrowUp,
   ArrowUpRight,
-  Award,
   BookOpen,
   Bot,
   Check,
@@ -482,49 +481,73 @@ function App() {
                   >
                     {entries.length > 0 ? (
                       <div className="timeline-items">
-                        {entries.map((item) => (
-                          <div
-                            className={
-                              item.logo
-                                ? "timeline-item timeline-item-with-logo"
-                                : "timeline-item"
-                            }
-                            key={`${item.title}-${item.period}`}
-                          >
-                            <div className="timeline-marker">
-                              {item.logo ? (
-                                <img
-                                  className="timeline-logo"
-                                  src={item.logo}
-                                  alt={`${item.title} logo`}
-                                  width="44"
-                                  height="44"
-                                  loading="lazy"
-                                  decoding="async"
-                                />
-                              ) : (
-                                <span />
-                              )}
+                        {entries.map((item, index) => {
+                          const certificates =
+                            tab === "education" && index === 0
+                              ? trainingCertificates
+                              : [];
+                          const hasHighlights =
+                            Boolean(item.highlights?.length) || certificates.length > 0;
+
+                          return (
+                            <div
+                              className={
+                                item.logo
+                                  ? "timeline-item timeline-item-with-logo"
+                                  : "timeline-item"
+                              }
+                              key={`${item.title}-${item.period}`}
+                            >
+                              <div className="timeline-marker">
+                                {item.logo ? (
+                                  <img
+                                    className="timeline-logo"
+                                    src={item.logo}
+                                    alt={`${item.title} logo`}
+                                    width="44"
+                                    height="44"
+                                    loading="lazy"
+                                    decoding="async"
+                                  />
+                                ) : (
+                                  <span />
+                                )}
+                              </div>
+                              <div className="timeline-copy">
+                                <span className="timeline-period">
+                                  {item.period}
+                                </span>
+                                <h3>{item.title}</h3>
+                                <span className="timeline-type">
+                                  {item.organization}
+                                </span>
+                                {item.description && <p>{item.description}</p>}
+                                {hasHighlights && (
+                                  <ul
+                                    className="timeline-highlights"
+                                    id={certificates.length > 0 ? "training" : undefined}
+                                  >
+                                    {item.highlights?.map((highlight) => (
+                                      <li key={highlight}>{highlight}</li>
+                                    ))}
+                                    {certificates.map((certificate) => (
+                                      <li key={certificate.id}>
+                                        {certificate.title} — {certificate.issuer}{" "}
+                                        {certificate.kind.toLowerCase()} (issued{" "}
+                                        <time dateTime={certificate.issuedOn}>
+                                          {issueDateFormat.format(
+                                            new Date(certificate.issuedOn),
+                                          )}
+                                        </time>
+                                        ).
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
                             </div>
-                            <div className="timeline-copy">
-                              <span className="timeline-period">
-                                {item.period}
-                              </span>
-                              <h3>{item.title}</h3>
-                              <span className="timeline-type">
-                                {item.organization}
-                              </span>
-                              {item.description && <p>{item.description}</p>}
-                              {item.highlights && item.highlights.length > 0 && (
-                                <ul className="timeline-highlights">
-                                  {item.highlights.map((highlight) => (
-                                    <li key={highlight}>{highlight}</li>
-                                  ))}
-                                </ul>
-                              )}
-                            </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     ) : (
                       <div className="timeline-item">
@@ -554,44 +577,6 @@ function App() {
                           </p>
                         </div>
                       </div>
-                    )}
-                    {tab === "education" && trainingCertificates.length > 0 && (
-                      <section
-                        id="training"
-                        className="education-training"
-                        aria-labelledby="training-title"
-                      >
-                        <h3 id="training-title">Training & certificates</h3>
-                        <ul
-                          className="training-list"
-                          aria-label="Training and certificates"
-                        >
-                          {trainingCertificates.map((certificate) => (
-                            <li className="training-item" key={certificate.id}>
-                              <Award
-                                className="training-icon"
-                                size={16}
-                                strokeWidth={1.6}
-                                aria-hidden="true"
-                              />
-                              <div>
-                                <h4>{certificate.title}</h4>
-                                <p className="training-issuer">
-                                  {certificate.issuer}{" "}
-                                  <span aria-hidden="true">·</span>{" "}
-                                  {certificate.kind}
-                                </p>
-                                <time dateTime={certificate.issuedOn}>
-                                  Issued{" "}
-                                  {issueDateFormat.format(
-                                    new Date(certificate.issuedOn),
-                                  )}
-                                </time>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </section>
                     )}
                     {entries.length === 0 && (
                       <div className="experience-bottom">
