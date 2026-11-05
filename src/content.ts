@@ -100,7 +100,7 @@ export const profile: PortfolioContent = {
   instagram: "https://www.instagram.com/jericho.dev",
   email: "villamorjerichoivan@gmail.com",
   location: null,
-  bio: "I build reliable web applications, from thoughtful interfaces to the systems behind them.",
+  bio: "Built for the eyes to admire, engineered for the mind to trust.",
   portrait: "/images/jericho-portrait.webp",
   work: [
     {
