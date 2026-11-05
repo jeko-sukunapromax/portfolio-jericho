@@ -109,7 +109,7 @@ export const profile: PortfolioContent = {
       organization: "SmartBridge",
       period: "2025–2026",
       description:
-        "Completed the Salesforce VIP Program, building a foundation in Apex programming, Lightning Web Components (LWC), and core CRM concepts.",
+        "Completed the Salesforce VIP Program, building a foundation in Apex programming, Lightning Web Components (LWC), and core CRM concepts. Strengthened cloud solution development by integrating industry-recognized methodologies with practical Salesforce implementation techniques.",
     },
   ],
   education: [
