@@ -105,7 +105,7 @@ export const profile: PortfolioContent = {
   portrait: "/images/jericho-portrait.webp",
   work: [
     {
-      title: "Salesforce Developer Internship",
+      title: "Salesforce Developer Internship (Remote)",
       organization: "SmartBridge",
       period: "2025–2026",
       description:
