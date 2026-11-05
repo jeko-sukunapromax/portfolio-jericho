@@ -1,0 +1,10 @@
+{
+  "domain": "jerichovillamordev.com",
+  "sshHost": "hostinger-gis",
+  "branch": "feature/jericho-portfolio",
+  "hostingSite": "maroon-gorilla-405011.hostingersite.com",
+  "publicDirectory": "domains/maroon-gorilla-405011.hostingersite.com/public_html/jericho-portfolio",
+  "routingConfiguration": "domains/maroon-gorilla-405011.hostingersite.com/public_html/.htaccess",
+  "sourceCheckout": "repositories/portfolio-jericho",
+  "buildDirectory": "dist"
+}
