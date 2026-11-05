@@ -111,6 +111,7 @@ export const profile: PortfolioContent = {
       description: "Geographic Information System",
       highlights: [
         "Developed a Geographic Information System for barangay profiles, population, land use, facilities, and hazard information.",
+        "Integrated real assessor records with geographic information for Bayambang.",
         "Implemented boundary management, spatial analysis, data imports and exports, and role-based administration.",
       ],
     },
@@ -205,7 +206,7 @@ export const projects: PortfolioProject[] = [
     title: "Geographic Information System",
     category: "Geospatial platform",
     description:
-      "A Laravel and Livewire mapping platform for barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration.",
+      "A Laravel and Livewire mapping platform combining real assessor records with barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration.",
     tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "GeoJSON"],
     highlight:
       "27,000+ data records for Bayambang, organized in one interactive mapping platform.",
