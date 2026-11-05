@@ -111,8 +111,9 @@ export const profile: PortfolioContent = {
       description: "Geographic Information System",
       highlights: [
         "Developed a Geographic Information System for barangay profiles, population, land use, facilities, and hazard information.",
-        "Integrated real assessor records with geographic information for Bayambang.",
+        "Integrated real assessor records with geographic information for Bayambang using PostgreSQL and PostGIS.",
         "Implemented boundary management, spatial analysis, data imports and exports, and role-based administration.",
+        "Embedded Ask Bayambang, a Gemini-powered AI chatbot for public information, property searches, and nearby places.",
       ],
     },
     {
@@ -206,8 +207,8 @@ export const projects: PortfolioProject[] = [
     title: "Geographic Information System",
     category: "Geospatial platform",
     description:
-      "A Laravel and Livewire mapping platform combining real assessor records with barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration.",
-    tags: ["PHP", "Laravel", "Livewire", "Tailwind CSS", "GeoJSON"],
+      "A Laravel and Livewire mapping platform powered by PostgreSQL and PostGIS, combining real assessor records with barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration. Includes Ask Bayambang, an embedded Gemini-powered AI chatbot for public information, property searches, and nearby places.",
+    tags: ["PHP", "Laravel", "Livewire", "PostgreSQL", "PostGIS", "Tailwind CSS", "GeoJSON", "Gemini API", "AI Chatbot"],
     highlight:
       "27,000+ data records for Bayambang, organized in one interactive mapping platform.",
   },
