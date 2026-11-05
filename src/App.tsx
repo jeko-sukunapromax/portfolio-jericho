@@ -38,9 +38,7 @@ const toolkitIcons = {
   cloud: Cloud,
 };
 
-const issueDateFormat = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
+const issueYearFormat = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   timeZone: "UTC",
 });
@@ -533,9 +531,9 @@ function App() {
                                     {certificates.map((certificate) => (
                                       <li key={certificate.id}>
                                         {certificate.title} — {certificate.issuer}{" "}
-                                        {certificate.kind.toLowerCase()} (issued{" "}
+                                        {certificate.kind.toLowerCase()} (
                                         <time dateTime={certificate.issuedOn}>
-                                          {issueDateFormat.format(
+                                          {issueYearFormat.format(
                                             new Date(certificate.issuedOn),
                                           )}
                                         </time>
