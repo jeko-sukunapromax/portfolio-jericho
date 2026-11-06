@@ -42,10 +42,18 @@ const issueYearFormat = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 });
 
-function SocialLinks({ showLabels = false }: { showLabels?: boolean }) {
+function SocialLinks({
+  showLabels = false,
+  showInstagram = true,
+}: {
+  showLabels?: boolean;
+  showInstagram?: boolean;
+}) {
   const links = [
     { label: "GitHub", href: profile.github, icon: Github, external: true },
-    { label: "Instagram", href: profile.instagram, icon: Instagram, external: true },
+    ...(showInstagram
+      ? [{ label: "Instagram", href: profile.instagram, icon: Instagram, external: true }]
+      : []),
     ...(profile.email
       ? [{ label: "Email", href: `mailto:${profile.email}`, icon: Mail, external: false }]
       : []),
@@ -318,7 +326,10 @@ function App() {
             <p className="hero-escalation">
               For escalations, please contact{" "}
               <a
-                href={profile.email ? `mailto:${profile.email}` : profile.instagram}
+                href={profile.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Jericho Villamor on Instagram"
               >
                 Jericho Villamor
               </a>
@@ -345,7 +356,7 @@ function App() {
                     <FileText size={16} aria-hidden="true" />
                   </button>
                 )}
-                <SocialLinks />
+                <SocialLinks showInstagram={false} />
               </div>
             </div>
           </div>
