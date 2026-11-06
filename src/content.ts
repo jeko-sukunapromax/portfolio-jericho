@@ -263,4 +263,15 @@ export const projects: PortfolioProject[] = [
     highlight:
       "Connected daily tasks, habit tracking, reminders, and audit deadlines in one Discord workflow.",
   },
+  {
+    id: "estateagent",
+    shortName: "ESTATE",
+    title: "EstateAgent Research Assistant",
+    category: "AI & property research",
+    description:
+      "A Next.js and TypeScript workspace for Gemini-powered property research, live browser scraping with Selenium, and GeoJSON assessor-file searches. Includes source citations, listing checks, parcel boundary previews, and research sessions stored locally in SQLite.",
+    tags: ["Next.js", "React", "TypeScript", "Gemini AI", "Selenium", "SQLite", "GeoJSON"],
+    highlight:
+      "Combined online property research, browser automation, and local assessor lookup in one workspace.",
+  },
 ];
