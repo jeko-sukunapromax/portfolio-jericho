@@ -35,7 +35,7 @@ export interface PortfolioProject {
 export interface PortfolioToolGroup {
   id: string;
   title: string;
-  icon: "ai" | "frontend" | "backend" | "database" | "cloud" | "integrations";
+  icon: "ai" | "frontend" | "backend" | "database" | "cloud";
   tools: string[];
 }
 
@@ -93,15 +93,6 @@ export const toolkitGroups: PortfolioToolGroup[] = [
       "PowerShell", "SSH", "Caddy", "systemd", "Vite", "npm", "pnpm", "Composer",
     ],
   },
-  {
-    id: "third-party-integrations",
-    title: "Third-Party Integrations",
-    icon: "integrations",
-    tools: [
-      "AYCD Inbox", "Discord API", "Jancy", "Lysted", "DeepSeek API",
-      "Microsoft Outlook", "PVADeals",
-    ],
-  },
 ];
 
 export const profile: PortfolioContent = {
@@ -131,7 +122,7 @@ export const profile: PortfolioContent = {
       ],
     },
     {
-      title: "Full Stack Engineer",
+      title: "Full Stack Developer",
       organization: "LGU Bayambang (Remote)",
       period: "Jun 2026 – Sep 2026",
       initials: "LB",
