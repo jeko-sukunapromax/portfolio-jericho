@@ -721,8 +721,7 @@ function App() {
             <div className="contact-direct">
               <h3>direct email</h3>
               <p>
-                For opportunities, project enquiries, or a copy of my résumé,
-                send me a message.
+                The fastest way to reach me. I typically respond within 24 hours.
               </p>
               {profile.email ? (
                 <a className="contact-button" href={`mailto:${profile.email}`}>
