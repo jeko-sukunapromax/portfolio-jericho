@@ -326,10 +326,10 @@ function App() {
             <p className="hero-escalation">
               For escalations, please contact{" "}
               <a
-                href={profile.linkedin}
+                href={profile.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Jericho Villamor on LinkedIn"
+                aria-label="Jericho Villamor on Instagram"
               >
                 Jericho Villamor
               </a>
