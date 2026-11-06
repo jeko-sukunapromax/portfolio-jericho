@@ -16,6 +16,7 @@ import {
   Mail,
   Menu,
   Moon,
+  Plug,
   Server,
   Sparkles,
   Sun,
@@ -33,6 +34,7 @@ const toolkitIcons = {
   backend: Server,
   database: Database,
   cloud: Cloud,
+  integrations: Plug,
 };
 
 const issueYearFormat = new Intl.DateTimeFormat("en-US", {

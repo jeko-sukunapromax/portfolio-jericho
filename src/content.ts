@@ -34,7 +34,7 @@ export interface PortfolioProject {
 export interface PortfolioToolGroup {
   id: string;
   title: string;
-  icon: "ai" | "frontend" | "backend" | "database" | "cloud";
+  icon: "ai" | "frontend" | "backend" | "database" | "cloud" | "integrations";
   tools: string[];
 }
 
@@ -72,6 +72,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     icon: "backend",
     tools: [
       "PHP", "Laravel", "Node.js", "discord.js", "REST APIs", "Webhooks",
+      "Express", "Fastify", "EJS", "OAuth 2.0", "IMAP / SMTP", "Vitest",
       "Laravel Sanctum", "Laravel Jetstream", "RBAC", "Apex",
     ],
   },
@@ -79,7 +80,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     id: "databases",
     title: "Databases & Data",
     icon: "database",
-    tools: ["SQL", "PostgreSQL", "PostGIS", "SQLite", "Cloudflare D1", "GeoJSON", "Spatial Analysis"],
+    tools: ["SQL", "PostgreSQL", "PostGIS", "Redis", "SQLite", "Cloudflare D1", "GeoJSON", "Spatial Analysis"],
   },
   {
     id: "cloud",
@@ -88,7 +89,16 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     tools: [
       "Railway", "Salesforce", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines",
       "Git/GitHub", "Windows Server", "Linux", "Cloudflare Workers", "Wrangler",
-      "Vite", "npm", "Composer",
+      "PowerShell", "SSH", "Caddy", "systemd", "Vite", "npm", "pnpm", "Composer",
+    ],
+  },
+  {
+    id: "third-party-integrations",
+    title: "Third-Party Integrations",
+    icon: "integrations",
+    tools: [
+      "AYCD Inbox", "Discord API", "Jancy", "Lysted", "DeepSeek API",
+      "Microsoft Outlook", "PVADeals",
     ],
   },
 ];
@@ -103,6 +113,21 @@ export const profile: PortfolioContent = {
   bio: "Built for the eyes to admire, engineered for the mind to trust.",
   portrait: "/images/jericho-portrait.webp",
   work: [
+    {
+      title: "Junior Software Engineer",
+      organization: "Center Court Capital (Remote · Outsourced)",
+      period: "Aug 2026 – Present",
+      initials: "CC",
+      description: "Email automation, third-party integrations & internal tools",
+      highlights: [
+        "Maintained the Central Email dashboard, Discord email-automation bot, and connected signup services using Node.js and TypeScript.",
+        "Integrated AYCD Inbox and Jancy with internal APIs to retrieve email verification codes and support mailbox workflows.",
+        "Improved Discord request approvals, batch processing, progress updates, and cancellation to prevent stuck runs and reduce duplicate messages.",
+        "Maintained Lysted sales and remittance reconciliation, including import validation, audit trails, issue tracking, and aging calculations.",
+        "Integrated DeepSeek-powered queue analysis with response validation and review controls.",
+        "Diagnosed browser-session, proxy, and VPS deployment issues; added regression tests and documented fixes and blockers in EOD and EOW reports.",
+      ],
+    },
     {
       title: "Full Stack Engineer",
       organization: "LGU Bayambang (Remote)",
