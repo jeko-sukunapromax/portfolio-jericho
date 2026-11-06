@@ -142,7 +142,7 @@ export const profile: PortfolioContent = {
       ],
     },
     {
-      title: "Junior Full Stack Engineer Intern",
+      title: "Full Stack Developer",
       organization: "LGU Bayambang",
       period: "Jan 2026 – Jun 2026",
       initials: "LB",
@@ -163,7 +163,7 @@ export const profile: PortfolioContent = {
       ],
     },
     {
-      title: "Junior Full Stack Engineer",
+      title: "Full Stack Developer",
       organization: "Leisure Coast Resort (Philippines)",
       period: "Aug 2024 – Jan 2025",
       initials: "LC",
