@@ -11,7 +11,7 @@ import {
   Database,
   FileText,
   Github,
-  Instagram,
+  Linkedin,
   LockKeyhole,
   Mail,
   Menu,
@@ -44,15 +44,15 @@ const issueYearFormat = new Intl.DateTimeFormat("en-US", {
 
 function SocialLinks({
   showLabels = false,
-  showInstagram = true,
+  showLinkedIn = true,
 }: {
   showLabels?: boolean;
-  showInstagram?: boolean;
+  showLinkedIn?: boolean;
 }) {
   const links = [
     { label: "GitHub", href: profile.github, icon: Github, external: true },
-    ...(showInstagram
-      ? [{ label: "Instagram", href: profile.instagram, icon: Instagram, external: true }]
+    ...(showLinkedIn
+      ? [{ label: "LinkedIn", href: profile.linkedin, icon: Linkedin, external: true }]
       : []),
     ...(profile.email
       ? [{ label: "Email", href: `mailto:${profile.email}`, icon: Mail, external: false }]
@@ -326,10 +326,10 @@ function App() {
             <p className="hero-escalation">
               For escalations, please contact{" "}
               <a
-                href={profile.instagram}
+                href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Jericho Villamor on Instagram"
+                aria-label="Jericho Villamor on LinkedIn"
               >
                 Jericho Villamor
               </a>
@@ -356,7 +356,7 @@ function App() {
                     <FileText size={16} aria-hidden="true" />
                   </button>
                 )}
-                <SocialLinks showInstagram={false} />
+                <SocialLinks showLinkedIn={false} />
               </div>
             </div>
           </div>
@@ -804,16 +804,16 @@ function App() {
                 <a href={`mailto:${profile.email}`}>{profile.email}</a>.
               </>
             ) : (
-              "Find me on Instagram or GitHub to start a conversation."
+              "Find me on LinkedIn or GitHub to start a conversation."
             )}
           </p>
           <SocialLinks />
           <a
             className="button button-primary dialog-action"
-            href={profile.email ? `mailto:${profile.email}` : profile.instagram}
+            href={profile.email ? `mailto:${profile.email}` : profile.linkedin}
           >
-            {profile.email ? "Email me" : "Find me on Instagram"}{" "}
-            {profile.email ? <Mail size={16} /> : <Instagram size={16} />}
+            {profile.email ? "Email me" : "Find me on LinkedIn"}{" "}
+            {profile.email ? <Mail size={16} /> : <Linkedin size={16} />}
           </a>
           <button
             className="button button-secondary copy-button"
