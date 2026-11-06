@@ -125,7 +125,7 @@ export const profile: PortfolioContent = {
         "Improved Discord request approvals, batch processing, progress updates, and cancellation to prevent stuck runs and reduce duplicate messages.",
         "Maintained Lysted sales and remittance reconciliation, including import validation, audit trails, issue tracking, and aging calculations.",
         "Integrated DeepSeek-powered queue analysis with response validation and review controls.",
-        "Diagnosed browser-session, proxy, and VPS deployment issues; added regression tests and documented fixes and blockers in EOD and EOW reports.",
+        "Maintained automated signup workflows with email and SMS verification, batch processing, and progress tracking.",
       ],
     },
     {
