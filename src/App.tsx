@@ -311,7 +311,7 @@ function App() {
               {profile.name}
               <span className="name-line" />
             </div>
-            <h2 className="hero-tagline">Full Stack Engineer</h2>
+            <h2 className="hero-tagline">Full Stack Developer</h2>
             <p className="hero-description">{profile.bio}</p>
             <p className="hero-escalation">
               For escalations, please contact{" "}
