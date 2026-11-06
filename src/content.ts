@@ -117,7 +117,7 @@ export const profile: PortfolioContent = {
   work: [
     {
       title: "Junior Software Engineer",
-      organization: "Center Court Capital (Remote · Outsourced)",
+      organization: "Center Court Capital (US Client · Remote · Outsourced)",
       period: "Aug 2026 – Present",
       initials: "CC",
       description: "Email automation, third-party integrations & internal tools",
