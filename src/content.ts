@@ -266,7 +266,7 @@ export const projects: PortfolioProject[] = [
   {
     id: "estateagent",
     shortName: "ESTATE",
-    title: "EstateAgent Research Assistant",
+    title: "EstateAgent",
     category: "AI & property research",
     description:
       "A Next.js and TypeScript workspace for Gemini-powered property research, live browser scraping with Selenium, and GeoJSON assessor-file searches. Includes source citations, listing checks, parcel boundary previews, and research sessions stored locally in SQLite.",
