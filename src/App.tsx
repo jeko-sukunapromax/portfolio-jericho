@@ -356,7 +356,7 @@ function App() {
                     <FileText size={16} aria-hidden="true" />
                   </button>
                 )}
-                <SocialLinks showLinkedIn={false} />
+                <SocialLinks />
               </div>
             </div>
           </div>
