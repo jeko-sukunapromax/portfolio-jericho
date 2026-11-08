@@ -258,7 +258,7 @@ export const projects: PortfolioProject[] = [
     title: "Personal Discord Assistant",
     category: "Productivity & automation",
     description:
-      "A TypeScript Discord bot for project-related tasks, habit check-ins, and scheduled reminders through slash commands. Includes service monitoring and a daily agenda, with Node.js/SQLite and Cloudflare Workers/D1 deployment options.",
+      "A Discord bot for project-related tasks, habit check-ins, and scheduled reminders through slash commands. Includes service monitoring and a daily agenda, with Node.js/SQLite and Cloudflare Workers/D1 deployment options.",
     tags: ["TypeScript", "Node.js", "discord.js", "SQLite", "Cloudflare Workers", "D1"],
     highlight:
       "Connected project tasks, habit tracking, and scheduled reminders in one Discord workflow.",
