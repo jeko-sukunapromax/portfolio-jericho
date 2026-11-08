@@ -73,7 +73,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     icon: "backend",
     tools: [
       "PHP", "Laravel", "Node.js", "discord.js", "REST APIs", "Webhooks",
-      "Express", "Fastify", "EJS", "OAuth 2.0", "IMAP / SMTP", "Vitest",
+      "Fastify", "Vitest",
       "Laravel Sanctum", "Laravel Jetstream", "RBAC", "Apex",
     ],
   },
