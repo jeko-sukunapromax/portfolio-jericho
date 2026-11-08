@@ -225,8 +225,8 @@ export const projects: PortfolioProject[] = [
     title: "Geographic Information System",
     category: "Geospatial platform",
     description:
-      "A Laravel and Livewire mapping platform powered by PostgreSQL and PostGIS, combining real assessor records with barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration. Includes the Bayambang Investor Portal, a one-stop shop for browsing property listings, viewing map locations, and submitting and tracking inquiries.",
-    tags: ["PHP", "Laravel", "Livewire", "PostgreSQL", "PostGIS", "Tailwind CSS", "GeoJSON"],
+      "A Laravel and Livewire mapping platform powered by PostgreSQL and PostGIS, combining real assessor records with barangay profiles, population, land use, facilities, and hazard information. Supports boundary management, spatial analysis, data imports and exports, and role-based administration. Includes the Bayambang Investor Portal, a one-stop shop for browsing property listings, viewing map locations, and submitting and tracking inquiries. Integrates an AI chatbot for public information, property searches, and nearby places.",
+    tags: ["PHP", "Laravel", "Livewire", "PostgreSQL", "PostGIS", "Tailwind CSS", "GeoJSON", "AI Integration"],
     highlight:
       "27,000+ data records for Bayambang, organized in one interactive mapping platform.",
   },
