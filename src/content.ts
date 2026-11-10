@@ -72,7 +72,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     title: "Backend",
     icon: "backend",
     tools: [
-      "PHP", "Laravel", "Node.js", "discord.js", "REST APIs", "Webhooks",
+      "PHP", "Laravel", "Symfony", "Node.js", "discord.js", "REST APIs", "Webhooks",
       "Fastify", "Vitest",
       "Laravel Sanctum", "Laravel Jetstream", "RBAC", "Apex",
     ],
@@ -88,7 +88,7 @@ export const toolkitGroups: PortfolioToolGroup[] = [
     title: "Cloud, DevOps & Infra",
     icon: "cloud",
     tools: [
-      "Railway", "Salesforce", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines",
+      "Railway", "AWS", "Amazon S3", "Salesforce", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines",
       "Git/GitHub", "Windows Server", "Linux", "Cloudflare Workers", "Wrangler",
       "PowerShell", "SSH", "Caddy", "systemd", "Vite", "npm", "pnpm", "Composer",
     ],
