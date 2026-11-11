@@ -107,7 +107,7 @@ export const profile: PortfolioContent = {
   portrait: "/images/jericho-portrait.webp",
   work: [
     {
-      title: "Freelance Web Developer",
+      title: "Full Stack Developer",
       organization: "US Client",
       period: "Oct 2026 – Present",
       initials: "US",
