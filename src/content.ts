@@ -107,6 +107,17 @@ export const profile: PortfolioContent = {
   portrait: "/images/jericho-portrait.webp",
   work: [
     {
+      title: "Freelance Web Developer",
+      organization: "US Client",
+      period: "Oct 2026 – Present",
+      initials: "US",
+      description: "Wedding Invitation Website",
+      highlights: [
+        "Developed a wedding invitation website for a US-based client using React, JavaScript, CSS, and Vite.",
+        "Built an animated envelope reveal, event countdown, photo viewing, background music, an RSVP dialog, and calendar downloads.",
+      ],
+    },
+    {
       title: "Junior Software Engineer",
       organization: "Center Court Capital (US Client · Outsourced)",
       period: "Aug 2026 – Present",
