@@ -108,7 +108,7 @@ export const profile: PortfolioContent = {
   work: [
     {
       title: "Full Stack Developer",
-      organization: "US Client",
+      organization: "US Client (Freelance)",
       period: "Oct 2026 – Present",
       initials: "US",
       description: "Wedding Invitation Website",
